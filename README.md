@@ -231,7 +231,8 @@ Just like the terminal, let's configure our editor a little. Go to **Sublime Tex
     "tab_size": 2,
     "translate_tabs_to_spaces": true,
     "word_wrap": false,
-    "indent_to_bracket": true
+    "indent_to_bracket": true,
+    "trim_trailing_white_space_on_save": true
 }
 ```
     
