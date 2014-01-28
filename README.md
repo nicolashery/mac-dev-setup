@@ -24,10 +24,10 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [MySQL](#mysql)
 - [Node.js](#nodejs)
 - [Ruby and RVM](#ruby-and-rvm)
+- [LESS](#less)
 - [Heroku](#heroku)
 - [MongoDB](#mongodb)
 - [Redis](#redis)
-- [LESSCSS](#lesscss)
 - [Elasticsearch](#elasticsearch)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
@@ -635,6 +635,40 @@ I mainly use Ruby for the CSS pre-processor [Compass](http://compass-style.org/)
 
     $ gem install compass --no-document
 
+## LESS
+
+CSS preprocessors are becoming quite popular, the most popular processors are [LESS](http://lesscss.org/) and [SASS](http://sass-lang.com). Preprocessing is a lot like compiling code for CSS. It allows you to reuse CSS in many different ways. Let's start out with using LESS as a basic preprocessor, it's used by a lot of popular CSS frameworks like [Bootstrap](http://getbootstrap.com/).
+
+### Install
+
+To install LESS you have to use NPM / Node, which you installed earlier using Homebrew. In the terminal use:
+
+    $ npm install less --global
+
+Note: the `--global` flag is optional but it prevents having to mess around with file paths. You can install without the flag, just know what you're doing.
+
+You can check that it installed properly by using:
+
+    $ lessc --version
+
+This should output some information about the compiler:
+
+    lessc 1.5.1 (LESS Compiler) [JavaScript]
+
+Okay, LESS is installed and running. Great! 
+
+### Usage
+
+There's a lot of different ways to use LESS. Generally I use it to compile my stylesheet locally. You can do that by using this command in the terminal:
+
+    $ lessc template.less template.css
+
+The two options are the "input" and "output" files for the compiler. The command looks in the current directory for the LESS stylesheet, compiles it, and outputs it to the second file in the same directory. You can add in paths to keep your project files organized:
+
+    $ lessc less/template.less css/template.css
+
+Read more about LESS on their page here: http://lesscss.org/
+
 ## Heroku
 
 [Heroku](http://www.heroku.com/), if you're not already familiar with it, is a [Platform-as-a-Service](http://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) that makes it really easy to deploy your apps online. There are other similar solutions out there, but Heroku was among the first and is currently the most popular. Not only does it make a developer's life easier, but I find that having Heroku deployment in mind when building an app forces you to follow modern app development [best practices](http://www.12factor.net/).
@@ -727,40 +761,6 @@ In another terminal, connect to the server with the Redis command-line interface
     $ redis-cli
 
 I'll let you refer to Redis' [documentation](http://redis.io/documentation) or other tutorials for more information.
-
-## LESS
-
-CSS Prepreprocessors are becoming quite popular, the most popular processors are [LESS](http://lesscss.org/) and [SASS](http://sass-lang.com). Preprocessing is a lot like compiling code for CSS. It allows you to reuse CSS in many different ways. Let's start out with using LESS as a basic preprocessor, it's used by a lot of popular CSS frameworks like [Bootstrap](http://getbootstrap.com/).
-
-### Install
-
-To install LESS you have to use NPM / Node, which you installed earlier using Homebrew. In the terminal use:
-
-	$ npm install less --global
-
-Note: the `--global` flag is optional but it prevents having to mess around with file paths. You can install without the flag, just know what you're doing.
-
-You can check that it installed properly by using:
-
-	$ lessc --version
-
-This should output some information about the compiler:
-
-	``lessc 1.5.1 (LESS Compiler) [JavaScript]``
-
-Okay, LESS is installed and running. Great! 
-
-### Usage
-
-There's a lot of different ways to use LESS. Generally I use it compile my stylesheet locally. You can do that by using this command in the terminal:
-
-	$ lessc template.less template.css
-
-The two options are the "input" and "output" files for the compiler. The command looks in the current directory for the LESS stylesheet, compiles it, and outputs it to the second file in the same directory. You can add in paths to keep your project files organized:
-
-	$ lessc less/template.less css/template.css
-
-Read more about LESS on their page here: http://lesscss.org/
 
 ## Elasticsearch
 
