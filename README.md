@@ -34,7 +34,7 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 
 ## System update
 
-First thing you need to do, on any OS acutally, is update the system! For that: **Apple Icon > Software Update...**
+First thing you need to do, on any OS actually, is update the system! For that: **Apple Icon > Software Update...**
 
 ## System preferences
 
@@ -89,7 +89,7 @@ One thing we need to do is tell the system to use programs installed by Hombrew 
 
     $ echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
 
-Open an new terminal tab with **Cmd+T** (you should also close the old one), then run the following command to make sure everything works:
+Open a new terminal tab with **Cmd+T** (you should also close the old one), then run the following command to make sure everything works:
 
     $ brew doctor
     
@@ -214,9 +214,9 @@ With the terminal, the text editor is a developer's most important tool. Everyon
 
 Go ahead and [download](http://www.sublimetext.com/) it. Open the **.dmg** file, drag-and-drop in the **Applications** folder, you know the drill now. Launch the application.
 
-**Note**: At this point I'm going to create a shorcut on the OS X Dock for both for Sublime Text and iTerm. To do so, right-click on the running application and select **Options > Keep in Dock**.
+**Note**: At this point I'm going to create a shortcut on the OS X Dock for both for Sublime Text and iTerm. To do so, right-click on the running application and select **Options > Keep in Dock**.
 
-Sublime Text is not free, but I think it has an unlimited "evaluation period". Anyhow, we're going to be using it so much that even the seemingly expensive $60 price tag is worth every penny. If you can afford it, I suggest you [support](http://www.sublimetext.com/buy) this awesome tool. :)
+Sublime Text is not free, but I think it has an unlimited "evaluation period". Anyhow, we're going to be using it so much that even the seemingly expensive $70 price tag is worth every penny. If you can afford it, I suggest you [support](http://www.sublimetext.com/buy) this awesome tool. :)
 
 Just like the terminal, let's configure our editor a little. Go to **Sublime Text 2 > Preferences > Settings - User** and paste the following in the file that just opened:
 
@@ -260,7 +260,7 @@ Then go to **Sublime Text 2 > Preferences > Settings - User** and add the follow
     "theme": "Soda Dark.sublime-theme",
     "soda_classic_tabs": true
 
-Restart Sublime Text for all changes to take affect (Note: on the Mac, closing all windows doesn't close the application, you need to hit **Cmd+Q**).
+Restart Sublime Text for all changes to take effect (Note: on the Mac, closing all windows doesn't close the application, you need to hit **Cmd+Q**).
 
 The Soda Theme page also offers some [extra color schemes](https://github.com/buymeasoda/soda-theme#syntax-highlighting-colour-schemes) you can download and try. But to be consistent with my terminal, I like to use the **Solarized** Color Scheme, which already ships with Sublime Text. To use it, just go to **Sublime Text 2 > Preferences > Color Scheme > Solarized (Dark)**. Again, this is really according to personal flavors, so pick what you want.
 
@@ -289,7 +289,7 @@ Although Sublime Text will be our main editor, it is a good idea to learn some v
 
 For example, when you run a Git commit, it will open Vim to allow you to type the commit message.
 
-I suggest you read a tutorial on Vim. Grasping the concept of the two "modes" of the editor, **Insert** (by pressing `i`) and **Normal** (by pressing `Esc` to exit Insert mode), will be the part that feels most unatural. After that it's just remembering a few important keys.
+I suggest you read a tutorial on Vim. Grasping the concept of the two "modes" of the editor, **Insert** (by pressing `i`) and **Normal** (by pressing `Esc` to exit Insert mode), will be the part that feels most unnatural. After that it's just remembering a few important keys.
 
 Vim's default settings aren't great, and you could spend a lot of time tweaking your configuration (the `.vimrc` file). But if you're like me and just use Vim occasionally, you'll be happy to know that [Tim Pope](https://github.com/tpope) has put together some sensible defaults to quickly get started.
 
