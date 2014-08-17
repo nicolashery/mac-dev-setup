@@ -295,9 +295,8 @@ Vim's default settings aren't great, and you could spend a lot of time tweaking 
 
 First, install [pathogen.vim](https://github.com/tpope/vim-pathogen) by running:
 
-    $ mkdir -p ~/.vim/autoload ~/.vim/bundle
-    $ curl -Sso ~/.vim/autoload/pathogen.vim \
-        https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+    $ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+        curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 Then create a file `~/.vimrc` (you can use `$ subl ~/.vimrc`), and paste in the following:
 
