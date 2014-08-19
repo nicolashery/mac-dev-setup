@@ -295,9 +295,8 @@ Vim's default settings aren't great, and you could spend a lot of time tweaking 
 
 First, install [pathogen.vim](https://github.com/tpope/vim-pathogen) by running:
 
-    $ mkdir -p ~/.vim/autoload ~/.vim/bundle
-    $ curl -Sso ~/.vim/autoload/pathogen.vim \
-        https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+    $ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+        curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 Then create a file `~/.vimrc` (you can use `$ subl ~/.vimrc`), and paste in the following:
 
@@ -443,9 +442,9 @@ First, grab the special formulae (which are not part of Homebrew core):
     $ brew tap samueljohn/python
     $ brew tap homebrew/science
     
-Then, install the `gfortran` dependency which we will need to build the libraries:
+Then, install the `gfortran` dependency (now in `gcc`) which we will need to build the libraries:
 
-    $ brew install gfortran
+    $ brew install gcc
     
 Finally, you can install Numpy and Scipy with:
 
