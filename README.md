@@ -13,7 +13,6 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [Homebrew](#homebrew)
 - [Consolas](#consolas)
 - [Beautiful terminal](#beautiful-terminal)
-- [iTerm2](#iterm2)
 - [Git](#git)
 - [Sublime Text](#sublime-text)
 - [Vim](#vim)
