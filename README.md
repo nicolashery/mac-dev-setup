@@ -31,6 +31,7 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [Elasticsearch](#elasticsearch)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
+- [JSHint](#jshint)
 
 ## System update
 
@@ -519,6 +520,10 @@ We also need to tell npm where to find the Xcode Command Line Tools, by running:
 
     $ sudo xcode-select -switch /usr/bin
 
+(If Xcode Command Line Tools were installed by Xcode, try instead:)
+
+    $ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
 Node modules are installed locally in the `node_modules` folder of each project by default, but there are at least two that are worth installing globally. Those are [CoffeeScript](http://coffeescript.org/) and [Grunt](http://gruntjs.com/):
 
     $ npm install -g coffee-script
@@ -551,6 +556,18 @@ To upgrade all or a particular package:
 To uninstall a package:
 
     $ npm uninstall <package>
+
+##JSHint
+
+JSHint is a JavaScript developer's best friend. 
+
+If the extra credit assignment to install Sublime Package Manager was completed, JSHint can be run as part of Sublime Text. 
+
+Install JSHint via npm (global install preferred)
+
+   $ npm install -g jshint
+
+Follow additional instructions on the [JSHint Package Manager page](https://sublime.wbond.net/packages/JSHint) or [build it manually](https://github.com/jshint/jshint)
 
 ## Ruby and RVM
 
@@ -834,5 +851,7 @@ Here is a quick list of some apps I use, and that you might find useful as well:
 - [Path Finder](http://cocoatech.com/pathfinder/): I love OSX, it's Unix so great for developers, and all of it just works and looks pretty! Only thing I "miss" from Windows (OMG what did he say?), is a decent file explorer. I think Finder is a pain to use. So I gladly paid for this alternative, but I understand others might find it expensive just to not have to use Finder. **($40)**
 - [Evernote](https://evernote.com/): If I don't write something down, I'll forget it. As a developer, you learn so many new things every day, and technology keeps changing, it would be insane to want to keep it all in your head. So take notes, sync them to the cloud, and have them on all your devices. To be honest, I switched to [Simplenote](http://simplenote.com/) because I only take text notes, and I got tired of Evernote putting extra spaces between paragraphs when I copy & pasted into other applications. Simplenote is so much better for text notes (and it supports Markdown!). **(Both are free)**
 - [Moom](http://manytricks.com/moom/): Don't waste time resizing and moving your windows. Moom makes this very easy. **($10)**
+
+
 
 
