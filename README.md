@@ -23,6 +23,7 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [Numpy and Scipy](#numpy-and-scipy)
 - [MySQL](#mysql)
 - [Node.js](#nodejs)
+- [JSHint](#jshint)
 - [Ruby and RVM](#ruby-and-rvm)
 - [LESS](#less)
 - [Heroku](#heroku)
@@ -31,7 +32,6 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [Elasticsearch](#elasticsearch)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
-- [JSHint](#jshint)
 
 ## System update
 
