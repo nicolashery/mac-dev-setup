@@ -565,9 +565,9 @@ If the extra credit assignment to install Sublime Package Manager was completed,
 
 Install JSHint via npm (global install preferred)
 
-   $ npm install -g jshint
+    $ npm install -g jshint
 
-Follow additional instructions on the [JSHint Package Manager page](https://sublime.wbond.net/packages/JSHint) or [build it manually](https://github.com/jshint/jshint)
+Follow additional instructions on the [JSHint Package Manager page](https://sublime.wbond.net/packages/JSHint) or [build it manually](https://github.com/jshint/jshint).
 
 ## Ruby and RVM
 
