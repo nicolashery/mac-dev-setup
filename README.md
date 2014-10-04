@@ -83,7 +83,7 @@ Once you reach the downloads page, search for "command line tools", and download
 
 Finally, we can install Hombrew! In the terminal paste the following line (without the `$`), hit **Enter**, and follow the steps on the screen:
 
-    $ ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 One thing we need to do is tell the system to use programs installed by Hombrew (in `/usr/local/bin`) rather than the OS default if it exists. We do this by adding `/usr/local/bin` to your `$PATH` environment variable:
 
