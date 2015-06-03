@@ -4,7 +4,7 @@ This document describes how I set up my developer environment on a new MacBook o
 
 The document assumes you are new to Mac. The steps below were tested on **OS X Mountain Lion**.
 
-If you have any comments or suggestions, feel free to give me a shout [on Twitter](https://twitter.com/nicolahery)!
+If you have any comments or suggestions, feel free to give me a shout [on Twitter](https://twitter.com/nicolas_hery)!
 
 - [System update](#system-update)
 - [System preferences](#system-preferences)
