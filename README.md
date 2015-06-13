@@ -16,6 +16,7 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [iTerm2](#iterm2)
 - [Git](#git)
 - [Sublime Text](#sublime-text)
+- [Atom](#atom)
 - [Vim](#vim)
 - [Python](#python)
 - [Virtualenv](#virtualenv)
@@ -283,6 +284,13 @@ Let's create a shortcut so we can launch Sublime Text from the command-line:
 Now I can open a file with `$ subl myfile.py` or start a new project in the current directory with `$ subl .`. Pretty cool.
 
 Sublime Text is very extensible. For now we'll leave it like that, we already have a solid installation. To add more in the future, a good place to start would be to install the [Sublime Package Control](http://wbond.net/sublime_packages/package_control/installation).
+
+##Atom
+Atom is a cool editor for javascript projects. Download from https://atom.io/
+after installation, go to commandline, and install packages you need.
+- atom install react
+- atom install vim-mode
+
 
 ## Vim
 
