@@ -23,7 +23,7 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [Numpy and Scipy](#numpy-and-scipy)
 - [MySQL](#mysql)
 - [Node.js](#nodejs)
-- [IO.js and NVM](#iojs)
+- [IO.js and NVM](#iojs-and-nvm)
 - [JSHint](#jshint)
 - [Ruby and RVM](#ruby-and-rvm)
 - [LESS](#less)
