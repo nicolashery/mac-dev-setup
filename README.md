@@ -23,6 +23,7 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [Numpy and Scipy](#numpy-and-scipy)
 - [MySQL](#mysql)
 - [Node.js](#nodejs)
+- [IO.js and NVM](#iojs)
 - [JSHint](#jshint)
 - [Ruby and RVM](#ruby-and-rvm)
 - [LESS](#less)
@@ -563,6 +564,21 @@ To upgrade all or a particular package:
 To uninstall a package:
 
     $ npm uninstall <package>
+
+## IO.js and NVM
+
+NVM is a node version manager. it supports nearly every version of node.js and io.js, and enables both quick transitions between versions and switching on a session basis.
+
+Install nvm, Install latest io.js 
+
+     $ curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash nvm install iojs 
+    
+Set io.js to load on every session
+
+     $ nvm alias default iojs
+     
+Alternative Installation Paths: [Latest io.js](https://iojs.org/en/index.html)
+
 
 ##JSHint
 
