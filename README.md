@@ -763,6 +763,17 @@ Installing it is very easy through Homebrew:
 
     $ brew update
     $ brew install mongo
+    
+### create data directory
+
+The following example command creates the default /data/db directory:
+
+    $ mkdir -p /data/db
+
+Set permissions for the data directory
+
+    $ sudo chmod -R 777 /data/db
+
 
 ### Usage
 
@@ -775,6 +786,13 @@ In another terminal, connect to the database with the Mongo shell using:
     $ mongo
 
 I'll let you refer to MongoDB's [Getting Started](http://docs.mongodb.org/manual/tutorial/getting-started/) guide for more!
+
+### add to touchd plist
+If you would like your mac to have mongo when it starts
+do the following also:
+https://alicoding.com/how-to-start-mongodb-automatically-when-starting-your-mac-os-x/
+
+
 
 ## Redis
 
