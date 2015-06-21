@@ -787,7 +787,7 @@ In another terminal, connect to the database with the Mongo shell using:
 
 I'll let you refer to MongoDB's [Getting Started](http://docs.mongodb.org/manual/tutorial/getting-started/) guide for more!
 
-### add to touchd plist
+### Add to touchd plist
 If you would like your mac to have mongo when it starts
 do the following also:
 https://alicoding.com/how-to-start-mongodb-automatically-when-starting-your-mac-os-x/
