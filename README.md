@@ -768,11 +768,11 @@ Installing it is very easy through Homebrew:
 
 The following example command creates the default /data/db directory:
 
-    $ mkdir -p /data/db
+    $ mkdir -p /var/lib/mongodb/
 
 Set permissions for the data directory
 
-    $ sudo chmod -R 777 /data/db
+    $ sudo chmod -R 777 /var/lib/mongodb/
 
 
 ### Usage
@@ -788,9 +788,10 @@ In another terminal, connect to the database with the Mongo shell using:
 I'll let you refer to MongoDB's [Getting Started](http://docs.mongodb.org/manual/tutorial/getting-started/) guide for more!
 
 ### Add to touchd plist
-If you would like your mac to have mongo when it starts
+If you would like your mac to have mongo(and pointing to your own dbpath) when it starts.
 do the following also:
 https://alicoding.com/how-to-start-mongodb-automatically-when-starting-your-mac-os-x/
+
 
 
 
