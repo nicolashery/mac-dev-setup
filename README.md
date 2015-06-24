@@ -506,15 +506,7 @@ Install [Node.js](http://nodejs.org/) with Homebrew:
     $ brew update
     $ brew install node
     
-The formula also installs the [npm](https://npmjs.org/) package manager. However, as suggested by the Homebrew output, we need to add `/usr/local/share/npm/bin` to our path so that npm-installed modules with executables will have them picked up.
-
-To do so, add this line to your `~/.path` file, before the `export PATH` line:
-
-```bash
-PATH=/usr/local/share/npm/bin:$PATH
-```
-        
-Open a new terminal for the `$PATH` changes to take effect.
+The formula also installs the [npm](https://npmjs.org/) package manager. 
 
 We also need to tell npm where to find the Xcode Command Line Tools, by running:
 
