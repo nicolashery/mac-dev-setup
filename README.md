@@ -418,16 +418,16 @@ Once it's done, we can install IPython with all the available options:
 
 You can launch IPython from the command line with `$ ipython`, but what's more interesting is to use its [QT Console](http://ipython.org/ipython-doc/stable/interactive/qtconsole.html). Launch the QT Console by running:
 
-    $ ipython qtconsole
+    $ jupyter qtconsole
     
 You can also customize the font it uses:
 
-    $ ipython qtconsole --ConsoleWidget.font_family="Consolas" --ConsoleWidget.font_size=13
+    $ jupyter qtconsole --ConsoleWidget.font_family="Consolas" --ConsoleWidget.font_size=13
     
 And since I'm lazy and I don't want to type or copy & paste that all the time, I'm going to create an alias for it. Create a `.extra` text file in your home directory with `$ subl ~/.extra` (I've set up `.bash_profile` to load `.extra`), and add the following line:
 
 ```bash
-alias ipy='ipython qtconsole --ConsoleWidget.font_family="Consolas" --ConsoleWidget.font_size=13'
+alias ipy='jupyter qtconsole --ConsoleWidget.font_family="Consolas" --ConsoleWidget.font_size=13'
 ```
     
 Open a fresh terminal. Now when you run `$ ipy`, it will launch the QT Console with your configured options.
