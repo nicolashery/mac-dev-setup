@@ -497,7 +497,13 @@ To connect with the command-line client, run:
 
 In terms of a GUI client for MySQL, I'm used to the official and free [MySQL Workbench](http://www.mysql.com/products/workbench/). But feel free to use whichever you prefer.
 
-You can find the MySQL Workbench download [here](http://www.mysql.com/downloads/workbench/). (**Note**: It will ask you to sign in, you don't need to, just click on "No thanks, just start my download!" at the bottom.)
+To install MySQL Workbench run: 
+
+    $ brew install Caskroom/cask/mysqlworkbench
+
+You can also find the MySQL Workbench download [here](http://www.mysql.com/downloads/workbench/). (**Note**: It will ask you to sign in, you don't need to, just click on "No thanks, just start my download!" at the bottom.)
+
+
 
 ## Node.js
 
@@ -699,7 +705,7 @@ Assuming that you have an account (sign up if you don't), let's install the [Her
     
 The formula might not have the latest version of the Heroku Client, which is updated pretty often. Let's update it now:
 
-    $ heroku update
+    $ brew upgrade heroku-toolbelt
     
 Don't be afraid to run `heroku update` every now and then to always have the most recent version.
 
@@ -747,7 +753,10 @@ In a terminal, start the MongoDB server:
 
     $ mongod
 
-In another terminal, connect to the database with the Mongo shell using:
+**Note** If you get an error "ailed to connect to 127.0.0.1:27017, reason: errno:61 Connection refused", try:
+    $ sudo mongod
+
+In another terminal (Cmd+T), connect to the database with the Mongo shell using:
 
     $ mongo
 
