@@ -308,7 +308,7 @@ Then create a file `~/.vimrc` (you can use `$ subl ~/.vimrc`), and paste in the 
 And finally, install the Vim "sensible defaults" by running:
 
     $ cd ~/.vim/bundle
-    $ git clone git://github.com/tpope/vim-sensible.git
+    $ git clone https://github.com/tpope/vim-sensible.git
 
 With that, Vim will look a lot better next time you open it!
 
