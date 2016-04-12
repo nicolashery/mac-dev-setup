@@ -821,10 +821,8 @@ $ elasticsearch-plugin --install mobz/elasticsearch-head
 Start a local elasticsearch server with:
 
 ```bash
-$ elasticsearch -f
+$ elasticsearch
 ```
-
-(The `-f` option tells it to run in the foreground, so you can stop it with `Ctrl+C`.)
 
 Test that the server is working correctly by running:
 
