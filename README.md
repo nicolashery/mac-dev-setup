@@ -1,7 +1,9 @@
 # Mac OS X Dev Setup
 
 TODO:
-- Postman and Postman Interceptor
+- [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) and [Postman Interceptor](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo)
+- [GitHub Desktop](https://desktop.github.com/)
+- [WagonHQ](https://www.wagonhq.com/)
 
 This document describes how I set up my developer environment on a new MacBook or iMac. We will set up popular programming languages (for example [Node](http://nodejs.org/) (JavaScript), [Python](http://www.python.org/), and [Ruby](http://www.ruby-lang.org/)). You may not need all of them for your projects, although I recommend having the three first three set up as they always come in handy.
 
@@ -26,14 +28,12 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [Virtualenv](#virtualenv)
 - [IPython](#ipython)
 - [Numpy and Scipy](#numpy-and-scipy)
-- [MySQL](#mysql)
 - [Node.js](#nodejs)
-- [JSHint](#jshint)
 - [Ruby and RVM](#ruby-and-rvm)
-- [LESS](#less)
 - [Heroku](#heroku)
-- [MongoDB](#mongodb)
+- [PostgreSQL](#postgresql)
 - [Redis](#redis)
+- [MongoDB](#mongodb)
 - [Elasticsearch](#elasticsearch)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
@@ -59,7 +59,7 @@ I recommend checking that basic security settings are enabled. You will be happy
 
 In **Apple Icon > System Preferences**:
 
-- Users & Groups: If you haven't already set a password for your user during the initial set up, you should do so now 
+- Users & Groups: If you haven't already set a password for your user during the initial set up, you should do so now
 - Security & Privacy > General: Require password immediately after sleep or screen saver begins (you can keep a grace period of a couple minutes if you prefer, but I like to know that my computer locks as soon as I close it)
 - Security & Privacy > FileVault: Make sure FileVault disk encryption is enabled
 - iCloud: If you haven't already done so during set up, enable Find My Mac
@@ -93,7 +93,7 @@ Package managers make it so much easier to install and update applications (for 
 An important dependency before Homebrew can work is the **Command Line Developer Tools** for **Xcode**. These include compilers that will allow you to build things from source. You can install them directly from the terminal with:
 
 ```
-$ xcode-select --install
+xcode-select --install
 ```
 
 Once that is done, we can install Hombrew by copy-pasting the installation command from the [Homebrew homepage]([Homebrew](http://brew.sh/) inside the terminal.
@@ -103,7 +103,7 @@ Follow the steps on the screen. You will be prompted for your user password so H
 Once installation is complete, you can run the following command to make sure everything works:
 
 ```
-$ brew doctor
+brew doctor
 ```
 
 ### Usage
@@ -111,45 +111,45 @@ $ brew doctor
 To install a package (or **Formula** in Homebrew vocabulary) simply type:
 
 ```
-$ brew install <formula>
+brew install <formula>
 ```
 
 To update Homebrew's directory of formulae, run:
 
 ```
-$ brew update
+brew update
 ```
-    
+
 **Note**: I've seen that command fail sometimes because of a bug. If that ever happens, run the following (when you have Git installed):
 
 ```
-$ cd /usr/local
-$ git fetch origin
-$ git reset --hard origin/master
+cd /usr/local
+git fetch origin
+git reset --hard origin/master
 ```
 
 To see if any of your packages need to be updated:
 
 ```
-$ brew outdated
+brew outdated
 ```
-    
+
 To update a package:
 
 ```
-$ brew upgrade <formula>
+brew upgrade <formula>
 ```
 
 Homebrew keeps older versions of packages installed, in case you want to roll back. That rarely is necessary, so you can do some cleanup to get rid of those old versions:
 
 ```
-$ brew cleanup
+brew cleanup
 ```
 
 To see what you have installed (with their version numbers):
 
 ```
-$ brew list --versions
+brew list --versions
 ```
 
 ### Homebrew Services
@@ -159,13 +159,19 @@ A nice extension to Homebrew is [Homebrew Services](https://github.com/Homebrew/
 To install it, simply run:
 
 ```
-$ brew tap homebrew/services
+brew tap homebrew/services
 ```
 
-After installing a service (for example a database), you can add it to services with:
+After installing a service (for example a database), it should automatically add itself to Hombrew Services. If not, you can add it manually with:
 
 ```
-$ brew services <formula>
+brew services <formula>
+```
+
+Start a service with:
+
+```
+brew services start <formula>
 ```
 
 At anytime you can view which services are running with:
@@ -192,10 +198,10 @@ Not a lot of colors yet. We need to tweak a little bit our Unix user's profile f
 We'll come back to the details of that later, but for now, just download the files [.bash_profile](https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_profile), [.bash_prompt](https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_prompt), [.aliases](https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.aliases) attached to this document into your home directory (`.bash_profile` is the one that gets loaded, I've set it up to call the others):
 
 ```
-$ cd ~
-$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_profile
-$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_prompt
-$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.aliases
+cd ~
+curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_profile
+curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.bash_prompt
+curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.aliases
 ```
 
 With that, open a new terminal tab (Cmd+T) and see the change! Try the list commands: `ls`, `ls -lh` (aliased to `ll`), `ls -lha` (aliased to `la`).
@@ -209,23 +215,23 @@ Now we have a terminal we can work with!
 Mac OS X comes with a pre-installed version of [Git](http://git-scm.com/), but we'll install our own through Homebrew to allow easy upgrades and not interfere with the system version. To do so, simply run:
 
 ```
-$ brew update
-$ brew install git
+brew update
+brew install git
 ```
 
 When done, to test that it installed fine you can run:
 
 ```
-$ which git
+which git
 ```
-    
+
 The output should be `/usr/local/bin/git`.
 
 Let's set up some basic configuration. Download the [.gitconfig](https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig) file to your home directory:
 
 ```
-$ cd ~
-$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
+cd ~
+curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
 ```
 
 It will add some color to the `status`, `branch`, and `diff` Git commands, as well as a couple aliases. Feel free to take a look at the contents of the file, and add to it to your liking.
@@ -233,8 +239,8 @@ It will add some color to the `status`, `branch`, and `diff` Git commands, as we
 Next, we'll define your Git user (should be the same name and email you use for [GitHub](https://github.com/) and [Heroku](http://www.heroku.com/)):
 
 ```
-$ git config --global user.name "Your Name Here"
-$ git config --global user.email "your_email@youremail.com"
+git config --global user.name "Your Name Here"
+git config --global user.email "your_email@youremail.com"
 ```
 
 They will get added to your `.gitconfig` file.
@@ -242,10 +248,10 @@ They will get added to your `.gitconfig` file.
 On a Mac, it is important to remember to add `.DS_Store` (a hidden OS X system file that's put in folders) to your project `.gitignore` files. You can take a look at this repository's [.gitignore](https://github.com/nicolashery/mac-dev-setup/blob/master/.gitignore) file for inspiration. You can also set it up in a global `.gitignore` file by cloning it into your home directory (but you'll want to make sure any collaborators also do it):
 
 ```
-$ cd ~
-$ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitignore
+cd ~
+curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitignore
 ```
-    
+
 ## Sublime Text
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Sublime Text](http://www.sublimetext.com/) is a pretty good option.
@@ -276,7 +282,7 @@ Just like the terminal, let's configure our editor a little. Go to **Sublime Tex
   "ensure_newline_at_eof_on_save": true
 }
 ```
-    
+
 Feel free to tweak these (like the font size) to your preference. When done, save the file and close it.
 
 I use tab size 2 for everything except Python and Markdown files, where I use tab size 4. If you have a Python and Markdown file handy (or create dummy ones with `$ touch dummy.py`), for each one, open it and go to **Sublime Text > Preferences > Settings - More > Syntax Specific - User** to paste in:
@@ -322,9 +328,9 @@ Sublime Text already supports syntax highlighting for a lot of languages. You ca
 Let's create a [command line shortcut](http://www.sublimetext.com/docs/3/osx_command_line.html) so we can launch Sublime Text from the terminal:
 
 ```
-$ cd ~
-$ mkdir bin
-$ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+cd ~
+mkdir bin
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 ```
 
 Now I can open a file with `$ subl myfile.py` or start a new project in the current directory with `$ subl .`. Pretty cool.
@@ -342,7 +348,7 @@ Vim's default settings aren't great, and you could spend a lot of time tweaking 
 First, install [pathogen.vim](https://github.com/tpope/vim-pathogen) by running:
 
 ```
-$ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ```
 
@@ -357,8 +363,8 @@ filetype plugin indent on
 And finally, install the Vim "sensible defaults" by running:
 
 ```
-$ cd ~/.vim/bundle
-$ git clone git://github.com/tpope/vim-sensible.git
+cd ~/.vim/bundle
+git clone git://github.com/tpope/vim-sensible.git
 ```
 
 With that, Vim will look a lot better next time you open it!
@@ -370,26 +376,26 @@ OS X, like Linux, ships with [Python](http://python.org/) already installed. But
 The following command will install Python 2.7 and any dependencies required (it can take a few minutes to build everything):
 
     $ brew install python
-    
+
 When finished, you should get a summary in the terminal. Running `$ which python` should output `/usr/local/bin/python`.
 
 It also installed [Pip]() (and its dependency [Distribute]()), which is the package manager for Python. Let's upgrade them both:
 
     $ pip install --upgrade distribute
     $ pip install --upgrade pip
-    
+
 Executable scripts from Python packages you install will be put in `/usr/local/share/python`, so let's add it to the `$PATH`. To do so, we'll create a `.path` text file in the home directory (I've already set up `.bash_profile` to call this file):
 
     $ cd ~
     $ subl .path
-    
+
 And add these lines to `.path`:
 
 ```bash
 PATH=/usr/local/share/python:$PATH
 export PATH
 ```
-    
+
 Save the file and open a new terminal to take the new `$PATH` into account (everytime you open a terminal, `.bash_profile` gets loaded).
 
 ### Pip Usage
@@ -401,11 +407,11 @@ Here are a couple Pip commands to get you started. To install a Python package:
 To upgrade a package:
 
     $ pip install --upgrade <package>
-        
+
 To see what's installed:
 
     $ pip freeze
-    
+
 To uninstall a package:
 
     $ pip uninstall <package>
@@ -428,7 +434,7 @@ Let's say you have a project in a directory called `myproject`. To set up virtua
 
     $ cd myproject/
     $ virtualenv venv --distribute
-    
+
 If you want your virtualenv to also inherit globally installed packages (like IPython or Numpy mentioned above), use:
 
     $ virtualenv venv --distribute --system-site-packages
@@ -436,7 +442,7 @@ If you want your virtualenv to also inherit globally installed packages (like IP
 These commands create a `venv` subdirectory in your project where everything is installed. You need to **activate** it first though (in every terminal where you are working on your project):
 
     $ source venv/bin/activate
-    
+
 You should see a `(venv)` appear at the beginning of your terminal prompt indicating that you are working inside the virtualenv. Now when you install something:
 
     $ pip install <package>
@@ -458,7 +464,7 @@ Before we install IPython, we'll need to get some dependencies. Run the followin
     $ brew update # Always good to do
     $ brew install zeromq # Necessary for pyzmq
     $ brew install pyqt # Necessary for the qtconsole
-    
+
 It may take a few minutes to build these.
 
 Once it's done, we can install IPython with all the available options:
@@ -470,17 +476,17 @@ Once it's done, we can install IPython with all the available options:
 You can launch IPython from the command line with `$ ipython`, but what's more interesting is to use its [QT Console](http://ipython.org/ipython-doc/stable/interactive/qtconsole.html). Launch the QT Console by running:
 
     $ ipython qtconsole
-    
+
 You can also customize the font it uses:
 
     $ ipython qtconsole --ConsoleWidget.font_family="Consolas" --ConsoleWidget.font_size=13
-    
+
 And since I'm lazy and I don't want to type or copy & paste that all the time, I'm going to create an alias for it. Create a `.extra` text file in your home directory with `$ subl ~/.extra` (I've set up `.bash_profile` to load `.extra`), and add the following line:
 
 ```bash
 alias ipy='ipython qtconsole --ConsoleWidget.font_family="Consolas" --ConsoleWidget.font_size=13'
 ```
-    
+
 Open a fresh terminal. Now when you run `$ ipy`, it will launch the QT Console with your configured options.
 
 To use the in-line Matplotlib functionality (nice for scientific computing), run `$ ipy --pylab=inline`.
@@ -493,132 +499,105 @@ First, grab the special formulae (which are not part of Homebrew core):
 
     $ brew tap samueljohn/python
     $ brew tap homebrew/science
-    
+
 Then, install the `gfortran` dependency (now in `gcc`) which we will need to build the libraries:
 
     $ brew install gcc
-    
+
 Finally, you can install Numpy and Scipy with:
 
     $ brew install numpy
     $ brew install scipy
-    
+
 (It may take a few minutes to build.)
-
-## MySQL
-
-### Install
-
-We will install [MySQL](http://www.mysql.com/) using Homebrew, which will also install some header files needed for MySQL bindings in different programming languages (MySQL-Python for one).
-
-To install, run:
-
-    $ brew update # Always good to do
-    $ brew install mysql
-
-As you can see in the ouput from Homebrew, before we can use MySQL we first need to set it up with:
-
-    $ unset TMPDIR
-    $ mkdir /usr/local/var
-    $ mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
-
-### Usage
-
-To start the MySQL server, use the `mysql.server` tool:
-
-    $ mysql.server start
-    
-To stop it when you are done, run:
-
-    $ mysql.server stop
-    
-You can see the different commands available for `mysql.server` with:
-
-    $ mysql.server --help
-    
-To connect with the command-line client, run:
-
-    $ mysql -uroot
-    
-(Use `exit` to quit the MySQL shell.)
-
-**Note**: By default, the MySQL user `root` has no password. It doesn't really matter for a local development database. If you wish to change it though, you can use `$ mysqladmin -u root password 'new-password'`.
-
-### MySQL Workbench
-
-In terms of a GUI client for MySQL, I'm used to the official and free [MySQL Workbench](http://www.mysql.com/products/workbench/). But feel free to use whichever you prefer.
-
-You can find the MySQL Workbench download [here](http://www.mysql.com/downloads/workbench/). (**Note**: It will ask you to sign in, you don't need to, just click on "No thanks, just start my download!" at the bottom.)
 
 ## Node.js
 
-Install [Node.js](http://nodejs.org/) with Homebrew:
+The recommended way to install [Node.js](http://nodejs.org/) is to use [nvm](https://github.com/creationix/nvm) (Node Version Manager) which allows you to manage multiple versions of Node.js on the same machine.
 
-    $ brew update
-    $ brew install node
-    
-The formula also installs the [npm](https://npmjs.org/) package manager. However, as suggested by the Homebrew output, we need to add `/usr/local/share/npm/bin` to our path so that npm-installed modules with executables will have them picked up.
+Install nvm by copy-pasting the [install script command](https://github.com/creationix/nvm#install-script) into your terminal.
 
-To do so, add this line to your `~/.path` file, before the `export PATH` line:
+Once that is done, open a new terminal and verify that it was installed correctly by running:
 
-```bash
-PATH=/usr/local/share/npm/bin:$PATH
 ```
-        
-Open a new terminal for the `$PATH` changes to take effect.
+command -v nvm
+```
 
-We also need to tell npm where to find the Xcode Command Line Tools, by running:
+Install the latest stable version of Node.js with:
 
-    $ sudo xcode-select -switch /usr/bin
+```
+nvm install node
+```
 
-(If Xcode Command Line Tools were installed by Xcode, try instead:)
+It will also set this version as your default version. You can install another specific version, for example Node 4, with:
 
-    $ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+```
+nvm install 4
+```
 
-Node modules are installed locally in the `node_modules` folder of each project by default, but there are at least two that are worth installing globally. Those are [CoffeeScript](http://coffeescript.org/) and [Grunt](http://gruntjs.com/):
+And switch between versions by using:
 
-    $ npm install -g coffee-script
-    $ npm install -g grunt-cli
+```
+nvm use 4
+nvm use default
+```
+
+Installing Node also installs the [npm](https://npmjs.org/) package manager.
 
 ### Npm usage
 
 To install a package:
 
-    $ npm install <package> # Install locally
-    $ npm install -g <package> # Install globally
+```
+npm install <package> # Install locally
+npm install -g <package> # Install globally
+```
 
 To install a package and save it in your project's `package.json` file:
 
-    $ npm install <package> --save
+```
+npm install <package> --save
+```
 
 To see what's installed:
 
-    $ npm list # Local
-    $ npm list -g # Global
+```
+npm list # Local
+npm list -g # Global
+```
 
 To find outdated packages (locally or globally):
 
-    $ npm outdated [-g]
+```
+npm outdated [-g]
+```
 
 To upgrade all or a particular package:
 
-    $ npm update [<package>]
+```
+npm update [<package>]
+```
 
 To uninstall a package:
 
-    $ npm uninstall <package>
+```
+npm uninstall <package>
+```
 
-##JSHint
+### ESLint
 
-JSHint is a JavaScript developer's best friend. 
+ESLint is a JavaScript developer's best friend. With Sublime Text, you can get real-time linting right inside the editor thanks to the [SublimeLinter](http://www.sublimelinter.com) package.
 
-If the extra credit assignment to install Sublime Package Manager was completed, JSHint can be run as part of Sublime Text. 
+First install [eslint_d](https://github.com/mantoni/eslint_d.js) globally via npm:
 
-Install JSHint via npm (global install preferred)
+```
+npm install -g eslint_d
+```
 
-    $ npm install -g jshint
+Then install the following packages through Sublime Text's Package Control:
 
-Follow additional instructions on the [JSHint Package Manager page](https://sublime.wbond.net/packages/JSHint) or [build it manually](https://github.com/jshint/jshint).
+- **SublimeLinter**
+- **SublimeLinter-contrib-eslint_d**
 
 ## Ruby and RVM
 
@@ -629,7 +608,7 @@ Like Python, [Ruby](http://www.ruby-lang.org/) is already installed on Unix syst
 When installing Ruby, best practice is to use [RVM](https://rvm.io/) (Ruby Version Manager) which allows you to manage multiple versions of Ruby on the same machine. Installing RVM, as well as the latest version of Ruby, is very easy. Just run:
 
     $ curl -L https://get.rvm.io | bash -s stable --ruby
-    
+
 When it is done, both RVM and a fresh version of Ruby 2.0 are installed. The following line was also automatically added to your `.bash_profile`:
 
 ```bash
@@ -641,7 +620,7 @@ I prefer to move that line to the `.extra` file, keeping my `.bash_profile` clea
 After that, start a new terminal and run:
 
     $ type rvm | head -1
-    
+
 You should get the output `rvm is a function`.
 
 ### Usage
@@ -667,169 +646,127 @@ You can install another version with:
 To update RVM itself, use:
 
     $ rvm get stable
-    
+
 [RubyGems](http://rubygems.org/), the Ruby package manager, was also installed:
 
     $ which gem
-    
+
 Update to its latest version with:
 
     $ gem update --system
-    
+
 To install a "gem" (Ruby package), run:
 
     $ gem install <gemname>
-        
+
 To install without generating the documentation for each gem (faster):
 
     $ gem install <gemname> --no-document
-        
+
 To see what gems you have installed:
 
     $ gem list
-    
+
 To check if any installed gems are outdated:
 
     $ gem outdated
-    
+
 To update all gems or a particular gem:
 
     $ gem update [<gemname>]
-    
+
 RubyGems keeps old versions of gems, so feel free to do come cleaning after updating:
 
     $ gem cleanup
-    
+
 I mainly use Ruby for the CSS pre-processor [Compass](http://compass-style.org/), which is built on top of [Sass](http://sass-lang.com/):
 
     $ gem install compass --no-document
-
-## LESS
-
-CSS preprocessors are becoming quite popular, the most popular processors are [LESS](http://lesscss.org/) and [SASS](http://sass-lang.com). Preprocessing is a lot like compiling code for CSS. It allows you to reuse CSS in many different ways. Let's start out with using LESS as a basic preprocessor, it's used by a lot of popular CSS frameworks like [Bootstrap](http://getbootstrap.com/).
-
-### Install
-
-To install LESS you have to use NPM / Node, which you installed earlier using Homebrew. In the terminal use:
-
-    $ npm install less --global
-
-Note: the `--global` flag is optional but it prevents having to mess around with file paths. You can install without the flag, just know what you're doing.
-
-You can check that it installed properly by using:
-
-    $ lessc --version
-
-This should output some information about the compiler:
-
-    lessc 1.5.1 (LESS Compiler) [JavaScript]
-
-Okay, LESS is installed and running. Great! 
-
-### Usage
-
-There's a lot of different ways to use LESS. Generally I use it to compile my stylesheet locally. You can do that by using this command in the terminal:
-
-    $ lessc template.less template.css
-
-The two options are the "input" and "output" files for the compiler. The command looks in the current directory for the LESS stylesheet, compiles it, and outputs it to the second file in the same directory. You can add in paths to keep your project files organized:
-
-    $ lessc less/template.less css/template.css
-
-Read more about LESS on their page here: http://lesscss.org/
 
 ## Heroku
 
 [Heroku](http://www.heroku.com/), if you're not already familiar with it, is a [Platform-as-a-Service](http://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) that makes it really easy to deploy your apps online. There are other similar solutions out there, but Heroku was among the first and is currently the most popular. Not only does it make a developer's life easier, but I find that having Heroku deployment in mind when building an app forces you to follow modern app development [best practices](http://www.12factor.net/).
 
-### Install
+Assuming that you have an account (sign up if you don't), let's install the [Heroku CLI](https://devcenter.heroku.com/categories/command-line). Heroku offers a Mac OS X installer, the [Heroku Toolbelt](https://toolbelt.heroku.com/), that includes the client. But for these kind of tools, I prefer using Homebrew. It allows us to keep better track of what we have installed. Luckily for us, Homebrew includes a `heroku-toolbelt` formula:
 
-Assuming that you have an account (sign up if you don't), let's install the [Heroku Client](https://devcenter.heroku.com/articles/using-the-cli) for the command-line. Heroku offers a Mac OS X installer, the [Heroku Toolbelt](https://toolbelt.heroku.com/), that includes the client. But for these kind of tools, I prefer using Homebrew. It allows us to keep better track of what we have installed. Luckily for us, Homebrew includes a `heroku-toolbelt` formula:
-
-    $ brew install heroku-toolbelt
-    
-The formula might not have the latest version of the Heroku Client, which is updated pretty often. Let's update it now:
-
-    $ heroku update
-    
-Don't be afraid to run `heroku update` every now and then to always have the most recent version.
-
-### Usage
+```
+brew install heroku-toolbelt
+```
 
 Login to your Heroku account using your email and password:
 
-    $ heroku login
-    
-If this is a new account, and since you don't already have a public **SSH key** in your `~/.ssh` directory, it will offer to create one for you. Say yes! It will also upload the key to your Heroku account, which will allow you to deploy apps from this computer.
+```
+heroku login
+```
 
-If it didn't offer create the SSH key for you (i.e. your Heroku account already has SSH keys associated with it), you can do so manually by running:
+Once logged-in, you're ready to deploy apps! Heroku has a great [Getting Started](https://devcenter.heroku.com/start) guides for different languages, so I'll let you refer to that. Heroku uses Git to push code for deployment, so make sure your app is under Git version control. A quick cheat sheet (if you've used Heroku before):
 
-     $ mkdir ~/.ssh
-     $ ssh-keygen -t rsa
-     
-Keep the default file name and skip the passphrase by just hitting Enter both times. Then, add the key to your Heroku account:
+```
+cd myapp/
+heroku create myapp
+git push heroku master
+heroku ps
+heroku logs -t
+```
 
-    $ heroku keys:add
-    
-Once the key business is done, you're ready to deploy apps! Heroku has a great [Getting Started](https://devcenter.heroku.com/articles/python) guide, so I'll let you refer to that (the one linked here is for Python, but there is one for every popular language). Heroku uses Git to push code for deployment, so make sure your app is under Git version control. A quick cheat sheet (if you've used Heroku before):
-
-    $ cd myapp/
-    $ heroku create myapp
-    $ git push heroku master
-    $ heroku ps
-    $ heroku logs -t
-    
 The [Heroku Dev Center](https://devcenter.heroku.com/) is full of great resources, so be sure to check it out!
 
-## MongoDB
+## PostgreSQL
 
-[MongoDB](http://www.mongodb.org/) is a popular [NoSQL](http://en.wikipedia.org/wiki/NoSQL) database.
+[PostgreSQL](https://www.postgresql.org/) is a popular relational database, and Heroku has first-class support for it.
 
-### Install
+Install PostgreSQL using Homebrew:
 
-Installing it is very easy through Homebrew:
+```
+brew update # Always good to do
+brew install postgresql
+```
 
-    $ brew update
-    $ brew install mongo
+It will automatically add itself to Homebrew Services. Start it with:
 
-### Usage
+```
+brew services start postgresql
+```
 
-In a terminal, start the MongoDB server:
-
-    $ mongod
-
-In another terminal, connect to the database with the Mongo shell using:
-
-    $ mongo
-
-I'll let you refer to MongoDB's [Getting Started](http://docs.mongodb.org/manual/tutorial/getting-started/) guide for more!
+If you reboot your machine, PostgreSQL will be restarted at login.
 
 ## Redis
 
 [Redis](http://redis.io/) is a blazing fast, in-memory, key-value store, that uses the disk for persistence. It's kind of like a NoSQL database, but there are a lot of [cool things](http://oldblog.antirez.com/post/take-advantage-of-redis-adding-it-to-your-stack.html) that you can do with it that would be hard or inefficient with other database solutions. For example, it's often used as session management or caching by web apps, but it has many other uses.
 
-### Install
-
 To install Redis, use Homebrew:
 
-    $ brew update
-    $ brew install redis
+```
+brew update
+brew install redis
+```
 
-### Usage
+Start it through Homebrew Services with:
 
-Start a local Redis server using the default configuration settings with:
-
-    $ redis-server
-
-For advanced usage, you can tweak the configuration file at `/usr/local/etc/redis.conf` (I suggest making a backup first), and use those settings with:
-
-    $ redis-server /usr/local/etc/redis.conf
-
-In another terminal, connect to the server with the Redis command-line interface using:
-
-    $ redis-cli
+```
+brew services start redis
+```
 
 I'll let you refer to Redis' [documentation](http://redis.io/documentation) or other tutorials for more information.
+
+## MongoDB
+
+[MongoDB](http://www.mongodb.org/) is a popular [NoSQL](http://en.wikipedia.org/wiki/NoSQL) database.
+
+Installing it is very easy through Homebrew:
+
+```
+brew update
+brew install mongo
+```
+
+Start it through Homebrew Services with:
+
+```
+brew services start mongo
+```
+
+I'll let you refer to MongoDB's [Getting Started](http://docs.mongodb.org/manual/tutorial/getting-started/) guide for more!
 
 ## Elasticsearch
 
