@@ -4,6 +4,7 @@ TODO:
 - [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) and [Postman Interceptor](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo)
 - [GitHub Desktop](https://desktop.github.com/)
 - [WagonHQ](https://www.wagonhq.com/)
+- git autocomplete `curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash` https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
 
 This document describes how I set up my developer environment on a new MacBook or iMac. We will set up popular programming languages (for example [Node](http://nodejs.org/) (JavaScript), [Python](http://www.python.org/), and [Ruby](http://www.ruby-lang.org/)). You may not need all of them for your projects, although I recommend having the three first three set up as they always come in handy.
 
@@ -607,19 +608,17 @@ Like Python, [Ruby](http://www.ruby-lang.org/) is already installed on Unix syst
 
 When installing Ruby, best practice is to use [RVM](https://rvm.io/) (Ruby Version Manager) which allows you to manage multiple versions of Ruby on the same machine. Installing RVM, as well as the latest version of Ruby, is very easy. Just run:
 
-    $ curl -L https://get.rvm.io | bash -s stable --ruby
-
-When it is done, both RVM and a fresh version of Ruby 2.0 are installed. The following line was also automatically added to your `.bash_profile`:
-
-```bash
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+```
+curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 
-I prefer to move that line to the `.extra` file, keeping my `.bash_profile` clean. I suggest you do the same.
+When it is done, both RVM and a fresh version of Ruby are installed.
 
-After that, start a new terminal and run:
+Open a new terminal and run:
 
-    $ type rvm | head -1
+```
+type rvm | head -1
+```
 
 You should get the output `rvm is a function`.
 
@@ -627,61 +626,83 @@ You should get the output `rvm is a function`.
 
 The following command will show you which versions of Ruby you have installed:
 
-    $ rvm list
+```
+rvm list
+```
 
-The one that was just installed, Ruby 2.0, should be set as default. When managing multiple versions, you switch between them with:
+The one that was just installed, Ruby 2, should be set as default. When managing multiple versions, you switch between them with:
 
-    $ rvm use system # Switch back to system install (1.8)
-    $ rvm use 2.0.0 --default # Switch to 2.0.0 and sets it as default
+```
+rvm use system # Switch back to system install (ex: 2.0)
+rvm use 2.3 --default # Switch to 2.3 and sets it as default
+```
 
-Run the following to make sure the version you want is being used (in our case, the just-installed Ruby 1.9.3):
+Run the following to make sure the version you want is being used:
 
-    $ which ruby
-    $ ruby --version
+```
+which ruby
+ruby --version
+```
 
 You can install another version with:
 
-    $ rvm install 1.9.3
+```
+rvm install 2.2
+```
 
 To update RVM itself, use:
 
-    $ rvm get stable
+```
+rvm get stable
+```
 
 [RubyGems](http://rubygems.org/), the Ruby package manager, was also installed:
 
-    $ which gem
+```
+which gem
+```
 
 Update to its latest version with:
 
-    $ gem update --system
+```
+gem update --system
+```
 
 To install a "gem" (Ruby package), run:
 
-    $ gem install <gemname>
+```
+gem install <gemname>
+```
 
 To install without generating the documentation for each gem (faster):
 
-    $ gem install <gemname> --no-document
+```
+gem install <gemname> --no-document
+```
 
 To see what gems you have installed:
 
-    $ gem list
+```
+gem list
+```
 
 To check if any installed gems are outdated:
 
-    $ gem outdated
+```
+gem outdated
+```
 
 To update all gems or a particular gem:
 
-    $ gem update [<gemname>]
+```
+gem update [<gemname>]
+```
 
 RubyGems keeps old versions of gems, so feel free to do come cleaning after updating:
 
-    $ gem cleanup
-
-I mainly use Ruby for the CSS pre-processor [Compass](http://compass-style.org/), which is built on top of [Sass](http://sass-lang.com/):
-
-    $ gem install compass --no-document
+```
+gem cleanup
+```
 
 ## Heroku
 
