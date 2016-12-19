@@ -29,6 +29,7 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [Heroku](#heroku)
 - [MongoDB](#mongodb)
 - [Redis](#redis)
+- [LESSCSS](#lesscss)
 - [Elasticsearch](#elasticsearch)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
@@ -779,6 +780,40 @@ In another terminal, connect to the server with the Redis command-line interface
     $ redis-cli
 
 I'll let you refer to Redis' [documentation](http://redis.io/documentation) or other tutorials for more information.
+
+## LESS
+
+CSS Prepreprocessors are becoming quite popular, the most popular processors are [LESS](http://lesscss.org/) and [SASS](http://sass-lang.com). Preprocessing is a lot like compiling code for CSS. It allows you to reuse CSS in many different ways. Let's start out with using LESS as a basic preprocessor, it's used by a lot of popular CSS frameworks like [Bootstrap](http://getbootstrap.com/).
+
+### Install
+
+To install LESS you have to use NPM / Node, which you installed earlier using Homebrew. In the terminal use:
+
+	$ npm install less --global
+
+Note: the `--global` flag is optional but it prevents having to mess around with file paths. You can install without the flag, just know what you're doing.
+
+You can check that it installed properly by using:
+
+	$ lessc --version
+
+This should output some information about the compiler:
+
+	``lessc 1.5.1 (LESS Compiler) [JavaScript]``
+
+Okay, LESS is installed and running. Great! 
+
+### Usage
+
+There's a lot of different ways to use LESS. Generally I use it compile my stylesheet locally. You can do that by using this command in the terminal:
+
+	$ lessc template.less template.css
+
+The two options are the "input" and "output" files for the compiler. The command looks in the current directory for the LESS stylesheet, compiles it, and outputs it to the second file in the same directory. You can add in paths to keep your project files organized:
+
+	$ lessc less/template.less css/template.css
+
+Read more about LESS on their page here: http://lesscss.org/
 
 ## Elasticsearch
 
