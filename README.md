@@ -46,6 +46,7 @@ In **Apple Icon > System Preferences**:
 - Trackpad > Tap to click
 - Keyboard > Key Repeat > Fast (all the way to the right)
 - Keyboard > Delay Until Repeat > Short (all the way to the right)
+- Keyboard > Shortcuts > All controls (the radio selection at the bottom; press space to activate a dialog button)
 - Dock > Automatically hide and show the Dock
 
 ## Google Chrome
