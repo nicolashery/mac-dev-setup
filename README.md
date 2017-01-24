@@ -26,11 +26,8 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [Sublime Text](#sublime-text)
 - [Vim](#vim)
 - [Python](#python)
-- [Virtualenv](#virtualenv)
-- [IPython](#ipython)
-- [Numpy and Scipy](#numpy-and-scipy)
 - [Node.js](#nodejs)
-- [Ruby and RVM](#ruby-and-rvm)
+- [Ruby](#ruby)
 - [Heroku](#heroku)
 - [PostgreSQL](#postgresql)
 - [Redis](#redis)
@@ -372,93 +369,139 @@ With that, Vim will look a lot better next time you open it!
 
 ## Python
 
-OS X, like Linux, ships with [Python](http://python.org/) already installed. But you don't want to mess with the system Python (some system tools rely on it, etc.), so we'll install our own version with Homebrew. It will also allow us to get the very latest version of Python 2.7.
+OS X, like Linux, ships with [Python](http://python.org/) already installed. But you don't want to mess with the system Python (some system tools rely on it, etc.), so we'll install our own version using [pyenv](https://github.com/yyuu/pyenv). This will also allow us to manage multiple versions of Python (ex: 2.7 and 3) should we need to.
 
-The following command will install Python 2.7 and any dependencies required (it can take a few minutes to build everything):
+Install `pyenv` via Homebrew by running:
 
-    $ brew install python
-
-When finished, you should get a summary in the terminal. Running `$ which python` should output `/usr/local/bin/python`.
-
-It also installed [Pip]() (and its dependency [Distribute]()), which is the package manager for Python. Let's upgrade them both:
-
-    $ pip install --upgrade distribute
-    $ pip install --upgrade pip
-
-Executable scripts from Python packages you install will be put in `/usr/local/share/python`, so let's add it to the `$PATH`. To do so, we'll create a `.path` text file in the home directory (I've already set up `.bash_profile` to call this file):
-
-    $ cd ~
-    $ subl .path
-
-And add these lines to `.path`:
-
-```bash
-PATH=/usr/local/share/python:$PATH
-export PATH
+```
+brew install pyenv
 ```
 
-Save the file and open a new terminal to take the new `$PATH` into account (everytime you open a terminal, `.bash_profile` gets loaded).
+When finished, you should see instructions to add something to your profile. Open your `.bash_profile` in the home directory (you can use `$ subl ~/.bash_profile`), and add the following line:
 
-### Pip Usage
+```bash
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+```
+
+Save the file and reload it with:
+
+```
+source ~/.bash_profile
+```
+
+We can now list all available Python versions by running:
+
+```
+pyenv install --list
+```
+
+Look for the latest 2.7.x version (or 3.x), and install it:
+
+```
+pyenv install 2.7.13 # the latest version might be different
+```
+
+List the Python versions you have locally with:
+
+```
+pyenv versions
+```
+
+The start (`*`) should indicate we are still using the `system` version. We should set the one we installed to be the default:
+
+```
+pyenv global 2.7.13
+```
+
+You should now see that version when running:
+
+```
+python --version
+```
+
+For more information, see the [pyenv commands](https://github.com/yyuu/pyenv/blob/master/COMMANDS.md) documentation.
+
+### pip
+
+[pip](https://pip.pypa.io) was also installed by `pyenv`. It is the package manager for Python.
 
 Here are a couple Pip commands to get you started. To install a Python package:
 
-    $ pip install <package>
+```
+pip install <package>
+```
 
 To upgrade a package:
 
-    $ pip install --upgrade <package>
+```
+pip install --upgrade <package>
+```
 
 To see what's installed:
 
-    $ pip freeze
+```
+pip freeze
+```
 
 To uninstall a package:
 
-    $ pip uninstall <package>
+```
+pip uninstall <package>
+```
 
-## Virtualenv
+### virtualenv
 
-[Virtualenv](http://www.virtualenv.org/) is a tool that creates an isolated Python environment for each of your projects. For a particular project, instead of installing required packages globally, it is best to install them in an isolated folder in the project (say a folder named `venv`), that will be managed by virtualenv.
+[virtualenv](https://virtualenv.pypa.io) is a tool that creates an isolated Python environment for each of your projects. For a particular project, instead of installing required packages globally, it is best to install them in an isolated folder, that will be managed by `virtualenv`.
 
-The advantage is that different projects might require different versions of packages, and it would be hard to manage that if you install packages globally. It also allows you to keep your global `/usr/local/lib/python2.7/site-packages` folder clean, containing only critical or big packages that you always need (like IPython, Numpy).
+The advantage is that different projects might require different versions of packages, and it would be hard to manage that if you install packages globally. It also allows you to keep your global `site-packages` folder clean, containing only big packages that you always need (for example Numpy and Scipy).
 
-### Install
+Instead of installing and using `virtualenv` directly, we'll use the dedicated `pyenv` plugin [pyenv-virtualenv](https://github.com/yyuu/pyenv-virtualenv) which will make things a bit easier for us. Install it via Homebrew:
 
-To install virtualenv, simply run:
+```
+brew install pyenv-virtualenv
+```
 
-    $ pip install virtualenv
+After installation, add the following line to your `.bash_profile`;
 
-### Usage
+```bash
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+```
 
-Let's say you have a project in a directory called `myproject`. To set up virtualenv for that project:
+And reload it with:
 
-    $ cd myproject/
-    $ virtualenv venv --distribute
+```
+source ~/.bash_profile
+```
 
-If you want your virtualenv to also inherit globally installed packages (like IPython or Numpy mentioned above), use:
+Now, let's say you have a project called `myproject`. You can set up virtualenv for that project and the Python version it uses (for example 2.7.13):
 
-    $ virtualenv venv --distribute --system-site-packages
+```
+pyenv virtualenv 2.7.13 myproject
+```
 
-These commands create a `venv` subdirectory in your project where everything is installed. You need to **activate** it first though (in every terminal where you are working on your project):
+See the list of virtualenvs you created with:
 
-    $ source venv/bin/activate
+```
+pyenv virtualenvs
+```
 
-You should see a `(venv)` appear at the beginning of your terminal prompt indicating that you are working inside the virtualenv. Now when you install something:
+To use your project's virtualenv, you need to **activate** it first (in every terminal where you are working on your project):
 
-    $ pip install <package>
+```
+pyenv activate myproject
+```
 
-It will get installed in the `venv` folder, and not conflict with other projects.
+You should see a `(myproject)` appear at the baeginning of your terminal prompt indicating that you are working inside the virtualenv. Now when you install something:
 
-**Important**: Remember to add `venv` to your project's `.gitignore` file so you don't include all of that in your source code!
+```
+pip install <package>
+```
 
-As mentioned earlier, I like to install big packages (like Numpy), or packages I always use (like IPython) globally. All the rest I install in a virtualenv.
+It will get installed in that virtualenv's folder, and not conflict with other projects.
 
-## IPython
+### IPython
 
 [IPython](http://ipython.org/) is an awesome project which provides a much better Python shell than the one you get from running `$ python` in the command-line. It has many cool functions (running Unix commands from the Python shell, easy copy & paste, creating Matplotlib charts in-line, etc.) and I'll let you refer to the [documentation](http://ipython.org/ipython-doc/stable/index.html) to discover them.
-
-### Install
 
 Before we install IPython, we'll need to get some dependencies. Run the following:
 
@@ -471,8 +514,6 @@ It may take a few minutes to build these.
 Once it's done, we can install IPython with all the available options:
 
     $ pip install ipython[zmq,qtconsole,notebook,test]
-
-### Usage
 
 You can launch IPython from the command line with `$ ipython`, but what's more interesting is to use its [QT Console](http://ipython.org/ipython-doc/stable/interactive/qtconsole.html). Launch the QT Console by running:
 
@@ -492,7 +533,7 @@ Open a fresh terminal. Now when you run `$ ipy`, it will launch the QT Console w
 
 To use the in-line Matplotlib functionality (nice for scientific computing), run `$ ipy --pylab=inline`.
 
-## Numpy and Scipy
+### Numpy and Scipy
 
 The [Numpy](http://numpy.scipy.org/) and [Scipy](http://www.scipy.org/SciPy) scientific libraries for Python are always a little tricky to install from source because they have all these dependencies they need to build correctly. Luckily for us, [Samuel John](http://www.samueljohn.de/) has put together some [Homebrew formulae](https://github.com/samueljohn/homebrew-python) to make it easier to install these Python libraries.
 
@@ -600,7 +641,7 @@ Then install the following packages through Sublime Text's Package Control:
 - **SublimeLinter**
 - **SublimeLinter-contrib-eslint_d**
 
-## Ruby and RVM
+## Ruby
 
 Like Python, [Ruby](http://www.ruby-lang.org/) is already installed on Unix systems. But we don't want to mess around with that installation. More importantly, we want to be able to use the latest version of Ruby.
 
