@@ -1,18 +1,20 @@
+#!/usr/bin/env bash
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   colorflag="--color"
-else # OS X `ls`
+else # macOS `ls`
   colorflag="-G"
 fi
 
 # List all files colorized in long format
-alias ll='ls -lh'
+alias ll="ls -lF ${colorflag}"
 
 # List all files colorized in long format, including dot files
-alias la="ls -lha"
+alias la="ls -laF ${colorflag}"
 
 # List only directories
-alias lsd='ls -l | grep "^d"'
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
