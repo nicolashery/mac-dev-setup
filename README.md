@@ -195,12 +195,21 @@ Not a lot of colors yet. We need to tweak a little bit our Unix user's profile f
 
 We'll come back to the details of that later, but for now, just download the files [.bash_profile](https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.bash_profile), [.bash_prompt](https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.bash_prompt), [.aliases](https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.aliases) attached to this document into your home directory (`.bash_profile` is the one that gets loaded, I've set it up to call the others):
 
+<<<<<<< HEAD
 ```
 cd ~
 curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.bash_profile
 curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.bash_prompt
 curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.aliases
 ```
+=======
+    $ cd ~
+    $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.bash_profile
+    $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.bash_prompt
+    $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.aliases
+    
+With that, open a new terminal tab (Cmd+T) and see the change! Try the list commands: `ls`, `ls -lh` (aliased to `ll`), `ls -lha` (aliased to `la`).
+>>>>>>> 0c45c8b4954ced62ec5d56ef3ff4749f149c98b5
 
 With that, open a new terminal tab (Cmd+T) and see the change! Try the list commands: `ls`, `ls -lh` (aliased to `ll`), `ls -lha` (aliased to `la`).
 
@@ -227,10 +236,15 @@ The output should be `/usr/local/bin/git`.
 
 Let's set up some basic configuration. Download the [.gitconfig](https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.gitconfig) file to your home directory:
 
+<<<<<<< HEAD
 ```
 cd ~
 curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.gitconfig
 ```
+=======
+    $ cd ~
+    $ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/2.0/.gitconfig
+>>>>>>> 0c45c8b4954ced62ec5d56ef3ff4749f149c98b5
 
 It will add some color to the `status`, `branch`, and `diff` Git commands, as well as a couple aliases. Feel free to take a look at the contents of the file, and add to it to your liking.
 
@@ -250,6 +264,13 @@ cd ~
 curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitignore
 ```
 
+<<<<<<< HEAD
+=======
+    $ git config --global credential.helper osxkeychain
+    
+**Note**: On a Mac, it is important to remember to add `.DS_Store` (a hidden OS X system file that's put in folders) to your `.gitignore` files. You can take a look at this repository's [.gitignore](https://github.com/nicolashery/mac-dev-setup/blob/2.0/.gitignore) file for inspiration.
+    
+>>>>>>> 0c45c8b4954ced62ec5d56ef3ff4749f149c98b5
 ## Sublime Text
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Sublime Text](http://www.sublimetext.com/) is a pretty good option.
