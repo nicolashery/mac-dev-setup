@@ -32,6 +32,8 @@ If you have any comments or suggestions, feel free to give me a shout [on Twitte
 - [Elasticsearch](#elasticsearch)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
+- [Finder](#finder)
+
 
 ## System update
 
@@ -852,6 +854,12 @@ Here is a quick list of some apps I use, and that you might find useful as well:
 - [Evernote](https://evernote.com/): If I don't write something down, I'll forget it. As a developer, you learn so many new things every day, and technology keeps changing, it would be insane to want to keep it all in your head. So take notes, sync them to the cloud, and have them on all your devices. To be honest, I switched to [Simplenote](http://simplenote.com/) because I only take text notes, and I got tired of Evernote putting extra spaces between paragraphs when I copy & pasted into other applications. Simplenote is so much better for text notes (and it supports Markdown!). **(Both are free)**
 - [Moom](http://manytricks.com/moom/): Don't waste time resizing and moving your windows. Moom makes this very easy. **($10)**
 
+## Finder
 
+When you open a Finder window, by default, everything is listed alphabetically, and folders are mixed in with files.
+For dev purpose, it's better to list Folders first.
+
+Select Preferences on Finder menu and then click on Advanced.
+In the list of checkbox items, Check the box that says "Keep folders on top when sorting by name."
 
 
