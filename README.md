@@ -209,6 +209,8 @@ To push code to your GitHub repositories, we're going to use the recommended HTT
     
 **Note**: On a Mac, it is important to remember to add `.DS_Store` (a hidden OS X system file that's put in folders) to your `.gitignore` files. You can take a look at this repository's [.gitignore](https://github.com/nicolashery/mac-dev-setup/blob/master/.gitignore) file for inspiration.
     
+You can also create a global gitignore file, which is a list of rules for ignoring files in every Git repository on your computer:
+
     $ cd ~
     $ echo .DS_Store >> ~/.gitignore_global
     $ git config --global core.excludesfile ~/.gitignore_global
