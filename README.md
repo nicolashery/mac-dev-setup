@@ -6,32 +6,6 @@ The document assumes you are new to Mac. The steps below were tested on **OS X M
 
 If you have any comments or suggestions, feel free to give me a shout [on Twitter](https://twitter.com/nicolahery)!
 
-- [System update](#system-update)
-- [System preferences](#system-preferences)
-- [Google Chrome](#google-chrome)
-- [iTerm2](#iterm2)
-- [Homebrew](#homebrew)
-- [Consolas](#consolas)
-- [Beautiful terminal](#beautiful-terminal)
-- [iTerm2](#iterm2)
-- [Git](#git)
-- [Sublime Text](#sublime-text)
-- [Vim](#vim)
-- [Python](#python)
-- [Virtualenv](#virtualenv)
-- [IPython](#ipython)
-- [Numpy and Scipy](#numpy-and-scipy)
-- [MySQL](#mysql)
-- [Node.js](#nodejs)
-- [JSHint](#jshint)
-- [Ruby and RVM](#ruby-and-rvm)
-- [LESS](#less)
-- [Heroku](#heroku)
-- [MongoDB](#mongodb)
-- [Redis](#redis)
-- [Elasticsearch](#elasticsearch)
-- [Projects folder](#projects-folder)
-- [Apps](#apps)
 
 ## System update
 
