@@ -482,6 +482,30 @@ conda deactivate
 pyenv shell --unset
 ```
 
+### Known issue: `gettext` not found by `git` after installing Anaconda/Miniconda
+
+If you installed an Anaconda/Miniconda distribution, you may start seeing an error message when using certain `git` commands, similar to this one:
+
+```
+pyenv: gettext.sh: command not found
+
+The `gettext.sh' command exists in these Python versions:
+  miniconda3-latest
+```
+
+If that is the case, you can use the following [workaround](https://github.com/pyenv/pyenv/issues/688#issuecomment-428675578):
+
+```
+brew install gettext
+```
+
+Then add this line to your `.bash_profile`:
+
+```bash
+# Workaround for: https://github.com/pyenv/pyenv/issues/688#issuecomment-428675578
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+```
+
 ## Node.js
 
 The recommended way to install [Node.js](http://nodejs.org/) is to use [nvm](https://github.com/creationix/nvm) (Node Version Manager) which allows you to manage multiple versions of Node.js on the same machine.
