@@ -145,6 +145,10 @@ edit `~/.ssh/config` File
 
 ## Using **Git**
 
+nano in Git verwenden
+
+    git config --global core.editor "nano"
+
 cloning repository
 
     git clone git@github.com:TobiasDax/mac-dev-setup.git
@@ -173,6 +177,10 @@ Maste or Branch pullen
 
     git pull origin master
 
+Git rebasen
+
+    https://github.com/edx/edx-platform/wiki/How-to-Rebase-a-Pull-Request
+
 ## **Tips**
 - you can setup the location for screenshots by manually opening the .app and choosing a new folder
 
@@ -184,3 +192,5 @@ Maste or Branch pullen
 - https://dev.to/therealdanvega/new-macbook-setup-for-developers-2nma
 - https://github.com/mas-cli/mas
 - https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+- https://superuser.com/questions/503844/git-on-mac-how-to-set-nano-as-the-default-text-editor
+- https://github.com/edx/edx-platform/wiki/How-to-Rebase-a-Pull-Request
