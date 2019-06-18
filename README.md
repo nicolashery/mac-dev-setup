@@ -223,6 +223,19 @@ cd ~
 curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitignore
 git config --global core.excludesfile ~/.gitignore
 ```
+
+Make sure your SSH key is linked from Git to your Github account. To check if you already have an existing SSH key, run:
+
+```
+$ ls -al ~/.ssh
+```
+It will list files in your .ssh directory if they exist. If not, you will  get "No such file or directory" and then you must generate an SSH key. 
+
+Once you have either located your existing SSH key or [generated a new SSH key](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) then you can proceed to [adding a new SSH key to your Github account](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account).
+
+*Make sure that when you do clone a repo, you click on "Use SSH" before you copy the repo URL since Git is setup to use an SSH Key. 
+
+
 ## Docker
 
 Using brew cask, we can now download Docker. Type the commands below into the terminal. 
