@@ -12,6 +12,9 @@ The document assumes you are new to Mac, but can also be useful if you are reins
 - [iTerm2](#iterm2)
 - [Homebrew](#homebrew)
 - [Git](#git)
+- [Docker](#docker)
+
+Optional: 
 - [Visual Studio Code](#visual-studio-code)
 - [Vim](#vim)
 - [Python](#python)
@@ -220,7 +223,68 @@ cd ~
 curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitignore
 git config --global core.excludesfile ~/.gitignore
 ```
+## Docker
 
+Using brew cask, we can now download Docker. Type the commands below into the terminal. 
+
+```
+$ brew update
+$ brew tap caskroom/cask
+$ brew search docker
+$ brew cask info docker
+$ brew cask install docker
+$ brew cleanup
+```
+Your terminal will say “docker was successfully installed!” but it is not. Open up Docker (in Launchpad or Finder) and follow the prompts to install Docker. 
+
+To test if Docker has been successfully installed, run:
+
+```
+$ docker version 
+```
+and you should get something that looks like this:
+
+```
+Client: Docker Engine - Community
+ Version:           18.09.2
+ API version:       1.39
+ Go version:        go1.10.8
+ Git commit:        6247962
+ Built:             Sun Feb 10 04:12:39 2019
+ OS/Arch:           darwin/amd64
+ Experimental:      false
+ ```
+ If you run: 
+ 
+ ``` 
+ $ docker ps -a
+```
+
+then you should get 
+
+```
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```
+
+If you run: 
+
+```
+ $ docker run -it ubuntu:latest uname -a
+ ```
+ 
+ then you should get 
+ 
+ ```
+ Unable to find image 'ubuntu:latest' locally
+ latest: Pulling from library/ubuntu
+ 6abc03819f3e: Pull complete
+ 05731e63f211: Pull complete
+ 0bd67c50d6be: Pull complete
+ Digest: sha256:f08638ec7ddc90065187e7eabdfac3c96e5ff0f6b2f1762cf31a4f49b53000a5
+ Status: Downloaded newer image for ubuntu:latest
+ Linux 9616a6476b6f 4.9.125-linuxkit #1 SMP Fri Sep 7 08:20:28 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux.
+
+```
 ## Visual Studio Code
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Visual Studio Code](https://code.visualstudio.com/) is a pretty good option.
