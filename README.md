@@ -298,6 +298,25 @@ If you run:
  Linux 9616a6476b6f 4.9.125-linuxkit #1 SMP Fri Sep 7 08:20:28 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux.
 
 ```
+
+##IntelliJ IDEA Ultimate
+IntelliJ IDEA Ultimate is the enterprise version of the editor IDEA. To begin, you must be first connected to the London VPN through Checkpoint (already installed). 
+
+On the top of your desktop, click on the checkpoint logo(four small horizontal lines). Click on "Connect," enter in your Wunderman username and password, and authenticate using the SecurEnvoy mobile application. 
+
+Once connected, the logo on the top right of your desktop will have a small green dot. 
+
+####Installing IntelliJ IDEA Ultimate using Brew Cask
+
+In your terminal, run: 
+
+```
+$ brew update
+$ brew install caskroom/cask/brew-cask
+$ brew cask install --appdir="~/Applications" intellij-idea
+```
+Once installation is complete, follow the prompts until it asks for a username and password. Click on "License Server" and enter in the server URL, and you're all set!
+
 ## Visual Studio Code
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Visual Studio Code](https://code.visualstudio.com/) is a pretty good option.
