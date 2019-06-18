@@ -235,7 +235,7 @@ Make sure your SSH key is linked from Git to your Github account. To check if yo
 ```
 $ ls -al ~/.ssh
 ```
-It will list files in your .ssh directory if they exist. If not, you will  get "No such file or directory" and then you must generate an SSH key. 
+It will list files in your .ssh directory if an SSH key exists. If not, you will get "No such file or directory" and then you must generate an SSH key. 
 
 Once you have either located your existing SSH key or [generated a new SSH key](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) then you can proceed to [adding a new SSH key to your Github account](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account).
 
@@ -332,7 +332,7 @@ On the top of your desktop, click on the checkpoint logo(four small horizontal l
 
 Once connected, the logo on the top right of your desktop will have a small green dot. 
 
-Installing IntelliJ IDEA Ultimate using Brew Cask:
+### Installing IntelliJ IDEA Ultimate using Brew Cask:
 
 In your terminal, run: 
 
