@@ -26,6 +26,7 @@ Optional:
 - [Elasticsearch](#elasticsearch)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
+- [IntelliJ IDEA Ultimate](#intellij-idea-ultimate)
 
 ## System update
 
@@ -299,14 +300,14 @@ If you run:
 
 ```
 
-##IntelliJ IDEA Ultimate
+## IntelliJ IDEA Ultimate
 IntelliJ IDEA Ultimate is the enterprise version of the editor IDEA. To begin, you must be first connected to the London VPN through Checkpoint (already installed). 
 
 On the top of your desktop, click on the checkpoint logo(four small horizontal lines). Click on "Connect," enter in your Wunderman username and password, and authenticate using the SecurEnvoy mobile application. 
 
 Once connected, the logo on the top right of your desktop will have a small green dot. 
 
-####Installing IntelliJ IDEA Ultimate using Brew Cask
+Installing IntelliJ IDEA Ultimate using Brew Cask:
 
 In your terminal, run: 
 
