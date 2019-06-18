@@ -9,10 +9,15 @@ The document assumes you are new to Mac, but can also be useful if you are reins
 - [System update](#system-update)
 - [System preferences](#system-preferences)
 - [Security](#security)
+
+Required:
 - [iTerm2](#iterm2)
 - [Homebrew](#homebrew)
 - [Git](#git)
 - [Docker](#docker)
+- [Docker-Compose](#docker-compose)
+- [IntelliJ IDEA Ultimate](#intellij-idea-ultimate)
+- [Postman](#postman)
 
 Optional: 
 - [Visual Studio Code](#visual-studio-code)
@@ -26,7 +31,7 @@ Optional:
 - [Elasticsearch](#elasticsearch)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
-- [IntelliJ IDEA Ultimate](#intellij-idea-ultimate)
+
 
 ## System update
 
@@ -300,6 +305,26 @@ If you run:
 
 ```
 
+## Docker-Compose 
+
+In your terminal, run:
+```
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+```
+
+and to check that docker-compose was successfully installed, run:
+
+```
+$ docker-compose --version
+```
+
+and it should print out
+
+```
+docker-compose version 1.18.0, build 8dd22a9
+```
+
 ## IntelliJ IDEA Ultimate
 IntelliJ IDEA Ultimate is the enterprise version of the editor IDEA. To begin, you must be first connected to the London VPN through Checkpoint (already installed). 
 
@@ -317,6 +342,19 @@ $ brew install caskroom/cask/brew-cask
 $ brew cask install --appdir="~/Applications" intellij-idea
 ```
 Once installation is complete, follow the prompts until it asks for a username and password. Click on "License Server" and enter in the server URL, and you're all set!
+
+## Postman
+
+Run the following commands to install Postman:
+
+```
+$ brew update
+$ brew tap caskroom/cask
+$ brew search postman
+$ brew cask info postman
+$ brew cask install postman
+$ brew cleanup
+```
 
 ## Visual Studio Code
 
