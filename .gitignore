@@ -9,3 +9,16 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+.glide/
+dist/*
+.DS_Store
+.idea/
+.iml

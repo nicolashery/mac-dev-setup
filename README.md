@@ -9,9 +9,17 @@ The document assumes you are new to Mac, but can also be useful if you are reins
 - [System update](#system-update)
 - [System preferences](#system-preferences)
 - [Security](#security)
+
+Required:
 - [iTerm2](#iterm2)
 - [Homebrew](#homebrew)
 - [Git](#git)
+- [Docker](#docker)
+- [Docker-Compose](#docker-compose)
+- [IntelliJ IDEA Ultimate](#intellij-idea-ultimate)
+- [Postman](#postman)
+
+Optional: 
 - [Visual Studio Code](#visual-studio-code)
 - [Vim](#vim)
 - [Python](#python)
@@ -23,6 +31,7 @@ The document assumes you are new to Mac, but can also be useful if you are reins
 - [Elasticsearch](#elasticsearch)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
+
 
 ## System update
 
@@ -219,6 +228,132 @@ On a Mac, it is important to remember to add `.DS_Store` (a hidden macOS system 
 cd ~
 curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitignore
 git config --global core.excludesfile ~/.gitignore
+```
+
+Make sure your SSH key is linked from Git to your Github account. To check if you already have an existing SSH key, run:
+
+```
+$ ls -al ~/.ssh
+```
+It will list files in your .ssh directory if an SSH key exists. If not, you will get "No such file or directory" and then you must generate an SSH key. 
+
+Once you have either located your existing SSH key or [generated a new SSH key](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) then you can proceed to [adding a new SSH key to your Github account](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account).
+
+*Make sure that when you do clone a repo, you click on "Use SSH" before you copy the repo URL since Git is setup to use an SSH Key. 
+
+
+## Docker
+
+Using brew cask, we can now download Docker. Type the commands below into the terminal. 
+
+```
+$ brew update
+$ brew tap caskroom/cask
+$ brew search docker
+$ brew cask info docker
+$ brew cask install docker
+$ brew cleanup
+```
+Your terminal will say “docker was successfully installed!” but it is not. Open up Docker (in Launchpad or Finder) and follow the prompts to install Docker. 
+
+To test if Docker has been successfully installed, run:
+
+```
+$ docker version 
+```
+and you should get something that looks like this:
+
+```
+Client: Docker Engine - Community
+ Version:           18.09.2
+ API version:       1.39
+ Go version:        go1.10.8
+ Git commit:        6247962
+ Built:             Sun Feb 10 04:12:39 2019
+ OS/Arch:           darwin/amd64
+ Experimental:      false
+ ```
+ If you run: 
+ 
+ ``` 
+ $ docker ps -a
+```
+
+then you should get 
+
+```
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```
+
+If you run: 
+
+```
+ $ docker run -it ubuntu:latest uname -a
+ ```
+ 
+ then you should get 
+ 
+ ```
+ Unable to find image 'ubuntu:latest' locally
+ latest: Pulling from library/ubuntu
+ 6abc03819f3e: Pull complete
+ 05731e63f211: Pull complete
+ 0bd67c50d6be: Pull complete
+ Digest: sha256:f08638ec7ddc90065187e7eabdfac3c96e5ff0f6b2f1762cf31a4f49b53000a5
+ Status: Downloaded newer image for ubuntu:latest
+ Linux 9616a6476b6f 4.9.125-linuxkit #1 SMP Fri Sep 7 08:20:28 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux.
+
+```
+
+## Docker-Compose 
+
+In your terminal, run:
+```
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+```
+
+and to check that docker-compose was successfully installed, run:
+
+```
+$ docker-compose --version
+```
+
+and it should print out
+
+```
+docker-compose version 1.18.0, build 8dd22a9
+```
+
+## IntelliJ IDEA Ultimate
+IntelliJ IDEA Ultimate is the enterprise version of the editor IDEA. To begin, you must be first connected to the London VPN through Checkpoint (already installed). 
+
+On the top of your desktop, click on the checkpoint logo(four small horizontal lines). Click on "Connect," enter in your Wunderman username and password, and authenticate using the SecurEnvoy mobile application. 
+
+Once connected, the logo on the top right of your desktop will have a small green dot. 
+
+### Installing IntelliJ IDEA Ultimate using Brew Cask:
+
+In your terminal, run: 
+
+```
+$ brew update
+$ brew install caskroom/cask/brew-cask
+$ brew cask install --appdir="~/Applications" intellij-idea
+```
+Once installation is complete, follow the prompts until it asks for a username and password. Click on "License Server" and enter in the server URL, and you're all set!
+
+## Postman
+
+Run the following commands to install Postman:
+
+```
+$ brew update
+$ brew tap caskroom/cask
+$ brew search postman
+$ brew cask info postman
+$ brew cask install postman
+$ brew cleanup
 ```
 
 ## Visual Studio Code
