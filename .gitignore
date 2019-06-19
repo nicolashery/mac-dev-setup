@@ -21,3 +21,4 @@ Thumbs.db
 dist/*
 .DS_Store
 .idea/
+.iml
