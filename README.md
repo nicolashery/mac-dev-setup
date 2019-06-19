@@ -32,7 +32,6 @@ Required:
 Optional: 
 - [Visual Studio Code](#visual-studio-code)
 - [Vim](#vim)
-- [Python](#python)
 - [Node.js](#nodejs)
 - [Ruby](#ruby)
 - [Heroku](#heroku)
@@ -69,6 +68,7 @@ In **Apple Icon > System Preferences**:
 - Security & Privacy > FileVault: Make sure FileVault disk encryption is enabled
 - iCloud: If you haven't already done so during set up, enable Find My Mac
 
+### The following are required:
 ## iTerm2
 
 ### Install
@@ -502,6 +502,8 @@ The Cloud SDK is a set of command line tools for Cloud platforms. Run:
 ```
 $ brew cask install google-cloud-sdk
 ```
+
+### The following are optional:
 ## Visual Studio Code
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Visual Studio Code](https://code.visualstudio.com/) is a pretty good option.
