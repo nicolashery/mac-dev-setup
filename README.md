@@ -516,6 +516,17 @@ $ brew install awscli
 $ brew cleanup
 ```
 
+## Zoom
+
+Zoom is a software that allows video conferencing, online meetings, chat, and mobile collaboration. 
+
+To install, run:
+
+```
+$ brew cask install zoomus
+```
+When asked for a password, enter your computer's password. 
+
 ### The following are optional:
 ## Visual Studio Code
 
