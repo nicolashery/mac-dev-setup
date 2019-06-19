@@ -28,6 +28,7 @@ Required:
 - [Pip3](#pip3)
 - [Google Cloud SDK](#google-cloud-sdk)
 - [AWS CLI](#aws-cli)
+- [Zoom](#zoom)
 
 
 Optional: 
