@@ -27,6 +27,7 @@ Required:
 - [Python3](#python3)
 - [Pip3](#pip3)
 - [Google Cloud SDK](#google-cloud-sdk)
+- [AWS CLI](#aws-cli)
 
 
 Optional: 
@@ -501,6 +502,18 @@ The Cloud SDK is a set of command line tools for Cloud platforms. Run:
 
 ```
 $ brew cask install google-cloud-sdk
+```
+
+## AWS CLI
+
+Amazon Web Services (AWS) Command-Line Interface (CLI) is a tool to manage AWS services and automate through scripts.
+
+To install, run:
+
+```
+$ brew update
+$ brew install awscli
+$ brew cleanup
 ```
 
 ### The following are optional:
