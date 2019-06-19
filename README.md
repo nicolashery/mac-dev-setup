@@ -22,6 +22,7 @@ Required:
 - [Maven](#maven)
 - [Groovy](#groovy)
 - [Gradle](#gradle)
+- [Go](#go)
 
 Optional: 
 - [Visual Studio Code](#visual-studio-code)
@@ -414,6 +415,31 @@ To install, run:
 ```
 $ brew install gradle
 ```
+
+## Go
+
+Before installing Go, go to your root directory and open up .bash_profile file by running
+
+```
+$ open .bash_profile
+```
+Paste the following into .bash_profile: 
+
+```
+# Golang
+ # Go development
+ export GOPATH="${HOME}/.go"
+ export GOROOT="$(brew --prefix golang)/libexec"
+ export PATH="${PATH}:${GOPATH}/bin:${GOROOT}/bin"
+```
+Save and exit out of the .bash_profile file. 
+
+To install Go, run:
+
+```
+$ brew install go
+```
+
 ## Visual Studio Code
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Visual Studio Code](https://code.visualstudio.com/) is a pretty good option.
