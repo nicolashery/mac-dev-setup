@@ -31,9 +31,13 @@ Required:
 - [Zoom](#zoom)
 - [Slack](#slack)
 - [OpenSSL](#Openssl)
+- [Terraform](#terraform)
+
+
 
 
 Optional: 
+- [Citrix Workspace and Citrix Netscaler Gateway](#citrix-workspace-and-citrix-netscaler-gateway)
 - [Visual Studio Code](#visual-studio-code)
 - [Vim](#vim)
 - [Node.js](#nodejs)
@@ -203,6 +207,8 @@ brew services list
 ```
 
 ## Bash-Completion
+
+Bash-completion helps you type commands faster. Type "git" into your terminal followed by pressing tab twice to see a list of commands.
 
 To install bash-completion, run:
 
@@ -562,7 +568,24 @@ $ brew update
 $ brew install openssl
 $ brew cleanup
 ```
+
+## Terraform 
+
+Terraform is a tool to build, version and change your infrastructure. 
+
+To install, run:
+
+```
+$ brew update
+$ brew install terraform
+$ brew cleanup
+```
 ### The following are optional:
+
+## Citrix Workspace and Citrix Netscaler Gateway
+
+If Citrix Workspace and Citrix Netscaler Gateway are not already installed on your computer, go ahead and install it straight from [Citrix's website](https://www.citrix.com/downloads/workspace-app/).
+
 ## Visual Studio Code
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Visual Studio Code](https://code.visualstudio.com/) is a pretty good option.
