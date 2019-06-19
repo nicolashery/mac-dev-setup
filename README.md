@@ -29,6 +29,8 @@ Required:
 - [Google Cloud SDK](#google-cloud-sdk)
 - [AWS CLI](#aws-cli)
 - [Zoom](#zoom)
+- [Slack](#slack)
+- [OpenSSL](#Openssl)
 
 
 Optional: 
@@ -394,6 +396,7 @@ To install Java, run:
 ```
 $ brew update
 $ brew cask install java
+$ brew cleanup 
 ```
 The terminal will ask to type a password in to continue installation, and the password is your computer's password. 
 
@@ -428,7 +431,9 @@ OS name: "mac os x", version: "10.14.5", arch: "x86_64", family: "mac"
 Groovy is an object-oriented language that integrates with Java. To install it, run:
 
 ```
+$ brew update
 $ brew install groovy
+$ brew cleanup
 ```
 
 ## Gradle
@@ -438,7 +443,9 @@ Gradle is a tool for automating builds that runs on JVM and requires a Java Deve
 To install, run:
 
 ```
+$ brew update
 $ brew install gradle
+$ brew cleanup
 ```
 
 ## Go
@@ -463,6 +470,7 @@ To install Go, run:
 
 ```
 $ brew install go
+$ brew cleanup
 ```
 
 
@@ -502,6 +510,7 @@ pip 19.1.1 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
 The Cloud SDK is a set of command line tools for Cloud platforms. Run:
 
 ```
+$ brew update
 $ brew cask install google-cloud-sdk
 ```
 
@@ -524,10 +533,35 @@ Zoom is a software that allows video conferencing, online meetings, chat, and mo
 To install, run:
 
 ```
+$ brew update
 $ brew cask install zoomus
+$ brew cleanup
 ```
 When asked for a password, enter your computer's password. 
 
+## Slack
+
+Slack is a cloud based messaging software used for team collaborations. 
+
+To install, run:
+
+```
+$ brew update
+$ brew cask install slack
+$ brew cleanup
+```
+
+## OpenSSL
+
+OpenSSL is a library to ensure secure communications across computer networks.
+
+To install, run:
+
+```
+$ brew update
+$ brew install openssl
+$ brew cleanup
+```
 ### The following are optional:
 ## Visual Studio Code
 
