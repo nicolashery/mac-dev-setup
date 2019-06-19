@@ -18,6 +18,10 @@ Required:
 - [Docker-Compose](#docker-compose)
 - [IntelliJ IDEA Ultimate](#intellij-idea-ultimate)
 - [Postman](#postman)
+- [Java](#java)
+- [Maven](#maven)
+- [Groovy](#groovy)
+- [Gradle](#gradle)
 
 Optional: 
 - [Visual Studio Code](#visual-studio-code)
@@ -345,6 +349,8 @@ Once installation is complete, follow the prompts until it asks for a username a
 
 ## Postman
 
+Postman is a tool to test and organize APIs. 
+
 Run the following commands to install Postman:
 
 ```
@@ -355,7 +361,59 @@ $ brew cask info postman
 $ brew cask install postman
 $ brew cleanup
 ```
+## Java
 
+To install Java, run:
+
+```
+$ brew update
+$ brew cask install java
+```
+The terminal will ask to type a password in to continue installation, and the password is your computer's password. 
+
+## Maven
+
+Maven is a project management tool that is based on the project object model, and can be used for project builds, dependencies, and documentations. 
+
+Run the following command in your terminal: 
+
+```
+$ brew update
+$ brew install maven
+$ brew cleanup
+```
+
+To check if Maven was successfully installed, run:
+
+```
+$ mvn -v
+```
+and the output should be:
+
+```
+Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-04T12:00:29-07:00)
+Maven home: /usr/local/Cellar/maven/3.6.1/libexec
+Java version: 12.0.1, vendor: Oracle Corporation, runtime: /Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home
+Default locale: en_US, platform encoding: UTF-8
+OS name: "mac os x", version: "10.14.5", arch: "x86_64", family: "mac"
+```
+## Groovy
+
+Groovy is an object-oriented language that integrates with Java. To install it, run:
+
+```
+$ brew install groovy
+```
+
+## Gradle
+
+Gradle is a tool for automating builds that runs on JVM and requires a Java Development Kit. 
+
+To install, run:
+
+```
+$ brew install gradle
+```
 ## Visual Studio Code
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Visual Studio Code](https://code.visualstudio.com/) is a pretty good option.
