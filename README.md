@@ -13,6 +13,7 @@ The document assumes you are new to Mac, but can also be useful if you are reins
 Required:
 - [iTerm2](#iterm2)
 - [Homebrew](#homebrew)
+- [Bash-Completion](#bash-completion)
 - [Git](#git)
 - [Docker](#docker)
 - [Docker-Compose](#docker-compose)
@@ -192,6 +193,24 @@ At anytime you can view which services are running with:
 ```
 brew services list
 ```
+
+## Bash-Completion
+
+To install bash-completion, run:
+
+```
+$ brew install bash-completion
+$ brew tap homebrew/completions
+```
+Go to your root directory, open up the .bash_profile file, and add 
+
+```
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+```
+
+Save and exit out of the .bash_profile file. 
 
 ## Git
 
