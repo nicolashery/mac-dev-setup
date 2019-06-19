@@ -26,6 +26,7 @@ Required:
 - [Go](#go)
 - [Python3](#python3)
 - [Pip3](#pip3)
+- [Google Cloud SDK](#google-cloud-sdk)
 
 
 Optional: 
@@ -482,6 +483,8 @@ python 3.7.0
 ```
 ## Pip3
 
+Pip is a package-management system used for packages written in Python.
+
 By installing Python3, Pip3 has also been installed. To ensure Pip3 has been installed, run:
 
 ```
@@ -492,7 +495,13 @@ and you should get:
 ```
 pip 19.1.1 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
 ```
+## Google Cloud SDK
 
+The Cloud SDK is a set of command line tools for Cloud platforms. Run:
+
+```
+$ brew cask install google-cloud-sdk
+```
 ## Visual Studio Code
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Visual Studio Code](https://code.visualstudio.com/) is a pretty good option.
