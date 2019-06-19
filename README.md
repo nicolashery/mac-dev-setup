@@ -24,6 +24,9 @@ Required:
 - [Groovy](#groovy)
 - [Gradle](#gradle)
 - [Go](#go)
+- [Python3](#python3)
+- [Pip3](#pip3)
+
 
 Optional: 
 - [Visual Studio Code](#visual-studio-code)
@@ -459,6 +462,37 @@ To install Go, run:
 $ brew install go
 ```
 
+
+## Python3
+
+To install Python3, run:
+
+```
+$ brew install python3
+```
+To ensure that python3 is properly installed, type:
+
+```
+$ python3 --version
+```
+and it should show:
+
+```
+python 3.7.0
+```
+## Pip3
+
+By installing Python3, Pip3 has also been installed. To ensure Pip3 has been installed, run:
+
+```
+$ pip3 --version
+```
+and you should get:
+
+```
+pip 19.1.1 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
+```
+
 ## Visual Studio Code
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Visual Studio Code](https://code.visualstudio.com/) is a pretty good option.
@@ -518,103 +552,6 @@ git clone https://tpope.io/vim/sensible.git
 
 With that, Vim will look a lot better next time you open it!
 
-## Python
-
-macOS, like Linux, ships with [Python](http://python.org/) already installed. But you don't want to mess with the system Python (some system tools rely on it, etc.), so we'll install our own version using [pyenv](https://github.com/yyuu/pyenv). This will also allow us to manage multiple versions of Python (ex: 2.7 and 3) should we need to.
-
-Install `pyenv` via Homebrew by running:
-
-```
-brew install pyenv
-```
-
-When finished, you should see instructions to add something to your profile. Open your `.bash_profile` in the home directory (you can use `code ~/.bash_profile`), and add the following line:
-
-```bash
-if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
-```
-
-Save the file and reload it with:
-
-```
-source ~/.bash_profile
-```
-
-Before installing a new Python version, the [pyenv wiki](https://github.com/pyenv/pyenv/wiki) recommends having a few dependencies available:
-
-```
-brew install openssl readline sqlite3 xz zlib
-```
-
-We can now list all available Python versions by running:
-
-```
-pyenv install --list
-```
-
-Look for the latest 3.x version (or 2.7.x), and install it (replace the `.x.x` with actual numbers):
-
-```
-pyenv install 3.x.x
-```
-
-List the Python versions you have locally with:
-
-```
-pyenv versions
-```
-
-The star (`*`) should indicate we are still using the `system` version, which is the default. I recommend leaving it as the default as some [Node.js](https://nodejs.org/en/) packages will use it in their installation process.
-
-You can switch your current terminal to another Python version with:
-
-```
-pyenv shell 3.x.x
-```
-
-You should now see that version when running:
-
-```
-python --version
-```
-
-In a project directory, you can use:
-
-```
-pyenv local 3.x.x
-```
-
-This will save that project's Python version to a `.python-version` file. Next time you enter the project's directory from a terminal, `pyenv` will automatically load that version for you.
-
-For more information, see the [pyenv commands](https://github.com/yyuu/pyenv/blob/master/COMMANDS.md) documentation.
-
-### pip
-
-[pip](https://pip.pypa.io) was also installed by `pyenv`. It is the package manager for Python.
-
-Here are a couple Pip commands to get you started. To install a Python package:
-
-```
-pip install <package>
-```
-
-To upgrade a package:
-
-```
-pip install --upgrade <package>
-```
-
-To see what's installed:
-
-```
-pip freeze
-```
-
-To uninstall a package:
-
-```
-pip uninstall <package>
-```
 
 ### virtualenv
 
