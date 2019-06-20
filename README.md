@@ -13,6 +13,7 @@ The document assumes you are new to Mac, but can also be useful if you are reins
 Required:
 - [iTerm2](#iterm2)
 - [Homebrew](#homebrew)
+- [Bash-Completion](#bash-completion)
 - [Git](#git)
 - [Docker](#docker)
 - [Docker-Compose](#docker-compose)
@@ -22,11 +23,23 @@ Required:
 - [Maven](#maven)
 - [Groovy](#groovy)
 - [Gradle](#gradle)
+- [Go](#go)
+- [Python3](#python3)
+- [Pip3](#pip3)
+- [Google Cloud SDK](#google-cloud-sdk)
+- [AWS CLI](#aws-cli)
+- [Zoom](#zoom)
+- [Slack](#slack)
+- [OpenSSL](#Openssl)
+- [Terraform](#terraform)
+
+
+
 
 Optional: 
+- [Citrix Workspace and Citrix Netscaler Gateway](#citrix-workspace-and-citrix-netscaler-gateway)
 - [Visual Studio Code](#visual-studio-code)
 - [Vim](#vim)
-- [Python](#python)
 - [Node.js](#nodejs)
 - [Ruby](#ruby)
 - [Heroku](#heroku)
@@ -63,6 +76,7 @@ In **Apple Icon > System Preferences**:
 - Security & Privacy > FileVault: Make sure FileVault disk encryption is enabled
 - iCloud: If you haven't already done so during set up, enable Find My Mac
 
+### The following are required:
 ## iTerm2
 
 ### Install
@@ -191,6 +205,26 @@ At anytime you can view which services are running with:
 ```
 brew services list
 ```
+
+## Bash-Completion
+
+Bash-completion helps you type commands faster. Type "git" into your terminal followed by pressing tab twice to see a list of commands.
+
+To install bash-completion, run:
+
+```
+$ brew install bash-completion
+$ brew tap homebrew/completions
+```
+Go to your root directory, open up the .bash_profile file, and add 
+
+```
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+```
+
+Save and exit out of the .bash_profile file. 
 
 ## Git
 
@@ -368,6 +402,7 @@ To install Java, run:
 ```
 $ brew update
 $ brew cask install java
+$ brew cleanup 
 ```
 The terminal will ask to type a password in to continue installation, and the password is your computer's password. 
 
@@ -402,7 +437,9 @@ OS name: "mac os x", version: "10.14.5", arch: "x86_64", family: "mac"
 Groovy is an object-oriented language that integrates with Java. To install it, run:
 
 ```
+$ brew update
 $ brew install groovy
+$ brew cleanup
 ```
 
 ## Gradle
@@ -412,8 +449,143 @@ Gradle is a tool for automating builds that runs on JVM and requires a Java Deve
 To install, run:
 
 ```
+$ brew update
 $ brew install gradle
+$ brew cleanup
 ```
+
+## Go
+
+Before installing Go, go to your root directory and open up .bash_profile file by running
+
+```
+$ open .bash_profile
+```
+Paste the following into .bash_profile: 
+
+```
+# Golang
+ # Go development
+ export GOPATH="${HOME}/.go"
+ export GOROOT="$(brew --prefix golang)/libexec"
+ export PATH="${PATH}:${GOPATH}/bin:${GOROOT}/bin"
+```
+Save and exit out of the .bash_profile file. 
+
+To install Go, run:
+
+```
+$ brew install go
+$ brew cleanup
+```
+
+
+## Python3
+
+To install Python3, run:
+
+```
+$ brew install python3
+```
+To ensure that python3 is properly installed, type:
+
+```
+$ python3 --version
+```
+and it should show:
+
+```
+python 3.7.0
+```
+## Pip3
+
+Pip is a package-management system used for packages written in Python.
+
+By installing Python3, Pip3 has also been installed. To ensure Pip3 has been installed, run:
+
+```
+$ pip3 --version
+```
+and you should get:
+
+```
+pip 19.1.1 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
+```
+## Google Cloud SDK
+
+The Cloud SDK is a set of command line tools for Cloud platforms. Run:
+
+```
+$ brew update
+$ brew cask install google-cloud-sdk
+```
+
+## AWS CLI
+
+Amazon Web Services (AWS) Command-Line Interface (CLI) is a tool to manage AWS services and automate through scripts.
+
+To install, run:
+
+```
+$ brew update
+$ brew install awscli
+$ brew cleanup
+```
+
+## Zoom
+
+Zoom is a software that allows video conferencing, online meetings, chat, and mobile collaboration. 
+
+To install, run:
+
+```
+$ brew update
+$ brew cask install zoomus
+$ brew cleanup
+```
+When asked for a password, enter your computer's password. 
+
+## Slack
+
+Slack is a cloud based messaging software used for team collaborations. 
+
+To install, run:
+
+```
+$ brew update
+$ brew cask install slack
+$ brew cleanup
+```
+
+## OpenSSL
+
+OpenSSL is a library to ensure secure communications across computer networks.
+
+To install, run:
+
+```
+$ brew update
+$ brew install openssl
+$ brew cleanup
+```
+
+## Terraform 
+
+Terraform is a tool to build, version and change your infrastructure. 
+
+To install, run:
+
+```
+$ brew update
+$ brew install terraform
+$ brew cleanup
+```
+### The following are optional:
+
+## Citrix Workspace and Citrix Netscaler Gateway
+
+If Citrix Workspace and Citrix Netscaler Gateway are not already installed on your computer, go ahead and install it straight from [Citrix's website](https://www.citrix.com/downloads/workspace-app/).
+
 ## Visual Studio Code
 
 With the terminal, the text editor is a developer's most important tool. Everyone has their preferences, but if you're just getting started and looking for something simple that works, [Visual Studio Code](https://code.visualstudio.com/) is a pretty good option.
@@ -473,103 +645,6 @@ git clone https://tpope.io/vim/sensible.git
 
 With that, Vim will look a lot better next time you open it!
 
-## Python
-
-macOS, like Linux, ships with [Python](http://python.org/) already installed. But you don't want to mess with the system Python (some system tools rely on it, etc.), so we'll install our own version using [pyenv](https://github.com/yyuu/pyenv). This will also allow us to manage multiple versions of Python (ex: 2.7 and 3) should we need to.
-
-Install `pyenv` via Homebrew by running:
-
-```
-brew install pyenv
-```
-
-When finished, you should see instructions to add something to your profile. Open your `.bash_profile` in the home directory (you can use `code ~/.bash_profile`), and add the following line:
-
-```bash
-if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
-```
-
-Save the file and reload it with:
-
-```
-source ~/.bash_profile
-```
-
-Before installing a new Python version, the [pyenv wiki](https://github.com/pyenv/pyenv/wiki) recommends having a few dependencies available:
-
-```
-brew install openssl readline sqlite3 xz zlib
-```
-
-We can now list all available Python versions by running:
-
-```
-pyenv install --list
-```
-
-Look for the latest 3.x version (or 2.7.x), and install it (replace the `.x.x` with actual numbers):
-
-```
-pyenv install 3.x.x
-```
-
-List the Python versions you have locally with:
-
-```
-pyenv versions
-```
-
-The star (`*`) should indicate we are still using the `system` version, which is the default. I recommend leaving it as the default as some [Node.js](https://nodejs.org/en/) packages will use it in their installation process.
-
-You can switch your current terminal to another Python version with:
-
-```
-pyenv shell 3.x.x
-```
-
-You should now see that version when running:
-
-```
-python --version
-```
-
-In a project directory, you can use:
-
-```
-pyenv local 3.x.x
-```
-
-This will save that project's Python version to a `.python-version` file. Next time you enter the project's directory from a terminal, `pyenv` will automatically load that version for you.
-
-For more information, see the [pyenv commands](https://github.com/yyuu/pyenv/blob/master/COMMANDS.md) documentation.
-
-### pip
-
-[pip](https://pip.pypa.io) was also installed by `pyenv`. It is the package manager for Python.
-
-Here are a couple Pip commands to get you started. To install a Python package:
-
-```
-pip install <package>
-```
-
-To upgrade a package:
-
-```
-pip install --upgrade <package>
-```
-
-To see what's installed:
-
-```
-pip freeze
-```
-
-To uninstall a package:
-
-```
-pip uninstall <package>
-```
 
 ### virtualenv
 
