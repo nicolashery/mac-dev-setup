@@ -262,7 +262,7 @@ Finally, activate the theme by going to **Code > Preferences > Color Theme** and
 
 ## Vim
 
-Although Sublime Text will be our main editor, it is a good idea to learn some very basic usage of [Vim](http://www.vim.org/). It is a very popular text editor inside the terminal, and is usually pre-installed on any Unix system.
+Although VS Code will be our main editor, it is a good idea to learn some very basic usage of [Vim](http://www.vim.org/). It is a very popular text editor inside the terminal, and is usually pre-installed on any Unix system.
 
 For example, when you run a Git commit, it will open Vim to allow you to type the commit message.
 
