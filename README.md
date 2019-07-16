@@ -1,6 +1,6 @@
 # macOS Dev Setup
 
-This document describes how I set up my developer environment on a new MacBook or iMac. We will set up popular programming languages (for example [Node](http://nodejs.org/) (JavaScript), [Python](http://www.python.org/), and [Ruby](http://www.ruby-lang.org/)). You may not need all of them for your projects, although I recommend having them set up as they always come in handy.
+This document describes how I set up my developer environment on a new MacBook or iMac. We will set up popular programming languages (for example [Node](http://nodejs.org/) (JavaScript), [Java](https://adoptopenjdk.net), [Python](http://www.python.org/), and [Ruby](http://www.ruby-lang.org/)). You may not need all of them for your projects, although I recommend having them set up as they always come in handy.
 
 The document assumes you are new to Mac, but can also be useful if you are reinstalling a system and need some reminder. The steps below were tested on **macOS High Sierra** (10.13), but should work for more recent versions as well.
 
@@ -20,6 +20,7 @@ The document assumes you are new to Mac, but can also be useful if you are reins
 - [Heroku](#heroku)
 - [PostgreSQL](#postgresql)
 - [Redis](#redis)
+- [Java](#java)
 - [Elasticsearch](#elasticsearch)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
@@ -789,6 +790,24 @@ brew services start redis
 
 I'll let you refer to Redis' [documentation](http://redis.io/documentation) or other tutorials for more information.
 
+## Java
+[Java](https://en.wikipedia.org/wiki/Java_(programming_language)) is a strongly-typed, object-oriented, buzzword-complaint programming language.
+
+### Install
+Check to see if you have java already installed.
+
+```bash
+java -version
+```
+
+If Java isn't installed yet, install Java via Homebrew:
+
+```bash
+brew tap adoptopenjdk/openjdk
+brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+open /usr/local/Caskroom/adoptopenjdk8/8,212:b04/OpenJDK8U-jdk_x64_mac_hotspot_8u212b04.pkg
+```
+
 ## Elasticsearch
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is a distributed search and analytics engine. It uses an HTTP REST API, making it easy to work with from any programming language.
@@ -803,11 +822,7 @@ Elasticsearch runs on Java, so check if you have it installed by running:
 java -version
 ```
 
-If Java isn't installed yet, dismiss the window that just appeared by clicking "Ok", and install Java via Homebrew:
-
-```
-brew cask install homebrew/cask-versions/java8
-```
+If Java isn't installed yet, dismiss the window that just appeared by clicking "Ok", and install Java via Homebrew (check above).
 
 Next, install Elasticsearch with:
 
