@@ -2,7 +2,7 @@
 
 This document describes how I set up my developer environment on a new MacBook or iMac. We will set up popular programming languages (for example [Node](http://nodejs.org/) (JavaScript), [Python](http://www.python.org/), and [Ruby](http://www.ruby-lang.org/)). You may not need all of them for your projects, although I recommend having them set up as they always come in handy.
 
-The document assumes you are new to Mac, but can also be useful if you are reinstalling a system and need some reminder. The steps below were tested on **macOS High Sierra** (10.13), but should work for more recent versions as well.
+The document assumes you are new to Mac, but can also be useful if you are reinstalling a system and need some reminder. The steps below were tested on **macOS Mojave** (10.14), but should work for more recent versions as well.
 
 **Contributing**: If you find any mistakes in the steps described below, or if any of the commands are outdated, do let me know! For any other suggestions, please understand if I don't include everything. This guide was originally written for some friends getting started with programming on a Mac, and as a personal reference for myself. I'm trying to keep it simple!
 
@@ -76,7 +76,7 @@ In **Apple Icon > System Preferences**:
 - Security & Privacy > FileVault: Make sure FileVault disk encryption is enabled
 - iCloud: If you haven't already done so during set up, enable Find My Mac
 
-### The following are required:
+# The following are required:
 ## iTerm2
 
 ### Install
@@ -376,7 +376,7 @@ In your terminal, run:
 
 ```
 $ brew update
-$ brew install caskroom/cask/brew-cask
+$ brew tap caskroom/cask
 $ brew cask install --appdir="~/Applications" intellij-idea
 ```
 Once installation is complete, follow the prompts until it asks for a username and password. Click on "License Server" and enter in the server URL, and you're all set!
@@ -580,7 +580,7 @@ $ brew update
 $ brew install terraform
 $ brew cleanup
 ```
-### The following are optional:
+# The following are optional:
 
 ## Citrix Workspace and Citrix Netscaler Gateway
 
