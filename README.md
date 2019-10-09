@@ -21,6 +21,7 @@ The document assumes you are new to Mac, but can also be useful if you are reins
 - [PostgreSQL](#postgresql)
 - [Redis](#redis)
 - [Elasticsearch](#elasticsearch)
+- [Docker](#docker)
 - [Projects folder](#projects-folder)
 - [Apps](#apps)
 
@@ -838,6 +839,35 @@ Elasticsearch's [documentation](https://www.elastic.co/guide/en/elasticsearch/re
 You can interact with the Elasticsearch server using `curl`, or anything that can send an HTTP request.
 
 However, if you prefer a graphical interface, you can take a look at [Dejavu](https://opensource.appbase.io/dejavu/). You can easily install it via the [Dejavu Chrome Extension](https://chrome.google.com/webstore/detail/dejavu-elasticsearch-web/jopjeaiilkcibeohjdmejhoifenbnmlh).
+
+
+## Docker
+
+[Docker](https://www.docker.com/)  is a set of platform-as-a-service (PaaS) products that use OS-level virtualization to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels. All containers are run by a single operating-system kernel and are thus more lightweight than virtual machines.
+
+### Install
+
+Download the version of docker for osx you want, check [here](https://docs.docker.com/install/overview/)
+
+Create an account [here](https://hub.docker.com/)
+
+Then you can download [here](https://hub.docker.com/?overlay=onboarding)
+
+Follow all the steps and congrats!You should have downloaded docker
+
+### GUI
+
+From the `docker ps` you can access to the containers that are running,logs,volumes etc. But you can install portrainer to have a GUI to check whats running and get some logs etc.
+
+For install you can run this:
+
+```bash
+docker volume create portainer_data
+docker run -d -p 8000:8000 -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+```
+
+Then you can go to localhost:9000 to see the web interface
+
 
 ## Projects folder
 
