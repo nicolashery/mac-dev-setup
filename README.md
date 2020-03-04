@@ -852,3 +852,4 @@ Here is a quick list of some apps I use, and that you might find useful as well:
 - [Postman](https://www.getpostman.com/): Easily make HTTP requests. Useful to test your REST APIs. **(Free for basic features)**
 - [GitHub Desktop](https://desktop.github.com/): I do everything through the `git` command-line tool, but I like to use GitHub Desktop just to review the diff of my changes. **(Free)**
 - [Spectacle](https://www.spectacleapp.com/): Move and resize windows with keyboard shortcuts. **(Free)**
+- [Taskade](https://www.taskade.com/): Realtime organization and collaboration tool for getting things done. **(Free)**
