@@ -293,8 +293,9 @@ brew install pyenv
 When finished, you should see instructions to add something to your profile. Open your `.bash_profile` in the home directory (you can use `code ~/.bash_profile`), and add the following line:
 
 ```bash
-if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
-```
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"```
 
 Save the file and reload it with:
 
